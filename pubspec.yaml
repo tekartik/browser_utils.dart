@@ -1,0 +1,10 @@
+name: tekartik_browser_utils
+version: 0.0.1
+dependencies:
+  browser: any
+  js: any
+  tekartik_common_utils:
+    git: git://github.com/tekartik/tekartik_common_utils.dart
+dev_dependencies:
+  dev_test: any
+  test: any
