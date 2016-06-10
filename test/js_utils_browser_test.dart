@@ -70,10 +70,14 @@ main() {
       expect(jsObjectToDebugString(null), null);
       expect(jsObjectToDebugString(new JsObject.jsify({})), "{}");
       expect(jsObjectToDebugString(new JsArray()), "[]");
+    });
 
+    /* chrome only @TestOn('chrome')
+    test('toDebugString_chrome', () {
       expect(jsObjectToDebugString(new JsObject.fromBrowserObject(document)),
           contains("browser"));
     });
+    */
 
     test('loadJs', () async {
       expect(context["tekartik_simple_script_text"], null);
