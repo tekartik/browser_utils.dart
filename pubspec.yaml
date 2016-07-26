@@ -1,5 +1,5 @@
 name: tekartik_browser_utils
-version: 0.0.1
+version: 0.1.0
 dependencies:
   browser: any
   js: any

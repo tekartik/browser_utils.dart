@@ -79,9 +79,10 @@ dynamic jsArrayItem(JsObject jsObject, int index) {
   return jsObject[index];
 }
 
-String jsObjectOrAnyToDebugString(dynamic object) {
+// Good is 2 for deep object
+String jsObjectOrAnyToDebugString(dynamic object, {int depth}) {
   if (object is JsObject) {
-    return jsObjectToDebugString(object);
+    return jsObjectToDebugString(object, depth: depth);
   } else if (object == null) {
     return null;
   } else {
@@ -89,9 +90,9 @@ String jsObjectOrAnyToDebugString(dynamic object) {
   }
 }
 
-String jsObjectToDebugString(JsObject jsObject) {
+String jsObjectToDebugString(JsObject jsObject, {int depth}) {
   if (jsObject == null) {
     return null;
   }
-  return jsObjectAsCollection(jsObject).toString();
+  return jsObjectAsCollection(jsObject, depth: depth).toString();
 }

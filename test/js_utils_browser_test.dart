@@ -1,8 +1,8 @@
 @TestOn("!vm")
 import 'dart:js';
 import 'package:tekartik_browser_utils/js_utils.dart';
-import 'package:test/test.dart';
-import 'dart:html';
+import 'package:dev_test/test.dart';
+//import 'dart:html';
 
 main() {
   group('JsObject', () {
@@ -64,6 +64,25 @@ main() {
       List list2 = [list1, map2];
       expect(jsObjectAsCollection(new JsObject.jsify(map2)), map2);
       expect(jsObjectAsCollection(new JsObject.jsify(list2)), list2);
+    });
+
+    test('asCollectionDepth', () {
+      expect(jsObjectAsCollection(null, depth: 0), isNull);
+      expect(jsObjectAsCollection(null, depth: 1), isNull);
+
+      Map map1 = {"int": 1, "string": "text"};
+      List list1 = [1, "test", null, 1.1, map1];
+      Map map2 = {"map1": map1, "list1": list1};
+      List list2 = [list1, map2];
+
+      expect(
+          jsObjectAsCollection(new JsObject.jsify(map2), depth: 0), {'.': '.'});
+      expect(
+          jsObjectAsCollection(new JsObject.jsify(list2), depth: 0), ['..']);
+      expect(jsObjectAsCollection(new JsObject.jsify(map2), depth: 1),
+          {'map1': {'.': '.'}, 'list1': ['..']});
+      expect(
+          jsObjectAsCollection(new JsObject.jsify(list2), depth: 1), [['..'], {'.': '.'}]);
     });
 
     test('toDebugString', () {

@@ -1,5 +1,5 @@
 @TestOn("!vm")
-import 'dart:js';
+
 import 'package:tekartik_browser_utils/css_utils.dart';
 import 'package:test/test.dart';
 import 'dart:html';
