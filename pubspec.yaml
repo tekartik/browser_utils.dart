@@ -8,6 +8,6 @@ dependencies:
 dev_dependencies:
   dev_test: any
   test: any
-# dependency_overrides:
+dependency_overrides:
 #  tekartik_common_utils:
 #    path: /opt/devx/git/github.com/tekartik/tekartik_common_utils.dart
