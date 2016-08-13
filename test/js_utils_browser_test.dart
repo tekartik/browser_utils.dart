@@ -1,10 +1,28 @@
 @TestOn("!vm")
+@JS()
+library js_utils_browser_test.dart;
+
 import 'dart:js';
-import 'package:tekartik_browser_utils/js_utils.dart';
+
 import 'package:dev_test/test.dart';
+import 'package:js/js.dart';
+import 'package:tekartik_browser_utils/js_utils.dart';
 //import 'dart:html';
 
+@JS('Car')
+class Car {
+  external Car();
+
+  external int drive(Object distance);
+
+  external int crash(Object distance);
+//external int drive(String distanceText);
+}
+
 main() {
+  setUpAll(() {
+    loadJavascriptScript('js_utils_browser_test.js');
+  });
   group('JsObject', () {
     test('type', () {
       JsObject jsObject = new JsObject.jsify({"test": "value"});
@@ -82,7 +100,47 @@ main() {
       expect(jsObjectAsCollection(new JsObject.jsify(map2), depth: 1),
           {'map1': {'.': '.'}, 'list1': ['..']});
       expect(
-          jsObjectAsCollection(new JsObject.jsify(list2), depth: 1), [['..'], {'.': '.'}]);
+          jsObjectAsCollection(new JsObject.jsify(list2), depth: 1),
+          [['..'], {'.': '.'}]);
+    });
+
+    test('jsObjectOrAnyAsJsObject', () {
+      // print(jsObjectOrAnyAsJsObject(null));
+      // print(jsObjectToDebugString(jsObjectOrAnyAsJsObject(new JsObject.jsify({}))));
+      // print(jsObjectOrAnyAsJsObject(1));
+      expect(jsObjectOrAnyAsJsObject(null), null);
+      expect(jsObjectOrAnyAsJsObject(1), null);
+      expect(jsObjectOrAnyAsCollection(new JsObject.jsify({})), {});
+      //print(jsObjectOrAnyAsJsObject(new Car()));
+      expect(jsObjectOrAnyAsJsObject(new Car()), new isInstanceOf<JsObject>());
+      // {distance: 0, drive: {}}
+      // print(jsObjectOrAnyAsCollection(new Car()));
+
+      //Map carCollection = jsObjectOrAnyAsCollection(new Car());
+      // firefox
+      // {o: {distance: 0, drive: {}}}
+      // print('carCollection: ${carCollection}');
+      Car car = new Car();
+
+      // On firefox ?XXJsLinkedHashMap on chorme _InternalLinkedHashMap
+      // Chrome: JsObjectImpl
+      // print("car.runtimeType: ${car.runtimeType}");
+
+      // On firefox ?XXJsLinkedHashMap on chorme _InternalLinkedHashMap
+      // Chrome: JsObject
+      // print("fromBrowser(car).runtimeType: ${new JsObject.fromBrowserObject(car).runtimeType}");
+      // On firefox JsLinkedHashMap on chorme _InternalLinkedHashMap
+      // print(jsObjectOrAnyAsCollection(new Car()).runtimeType);
+
+      if (debugRunningAsJavascript) {
+        expect(jsObjectOrAnyAsCollection(car),
+            {"o": {"distance": 0, "drive": {}}});
+      } else {
+        expect(
+            jsObjectOrAnyAsCollection(car), {"distance": 0, "drive": {}});
+      }
+
+      //expect(jsObjectOrAnyAsCollection(new Car()), {"distance": 0, "drive": {}});
     });
 
     test('toDebugString', () {
@@ -103,6 +161,35 @@ main() {
       await loadJavascriptScript("data/simple_script.js");
       //await loadJavascriptScript("https://apis.google.com/js/client.js");
       expect(context["tekartik_simple_script_text"], "hello");
+
+      bool failed = false;
+      try {
+        await loadJavascriptScript("data/NOT_EXISTS.js");
+      } catch (e) {
+        failed = true;
+        //print(e);
+      }
+      expect(failed, isTrue, reason: "script does not exits");
     });
+
+    // Skipped when not debugging
+    test('debugLoadJs', () async {
+      expect(context["tekartik_debug_load_js_script_text"], null);
+      await debugLoadJavascriptScript("data/debug_load_js_script.js");
+      expect(context["tekartik_debug_load_js_script_text"], "hello");
+      await debugLoadJavascriptScript("data/debug_load_js_script.js");
+    }, skip: true);
+
+    // Skipped when not debugging
+    test('debugLoadBadJs', () async {
+      bool failed = false;
+      try {
+        await debugLoadJavascriptScript("data/NOT_EXISTS.js");
+      } catch (e) {
+        failed = true;
+        print(e);
+      }
+      expect(failed, isTrue, reason: "script does not exits");
+    }, skip: true);
   });
 }
