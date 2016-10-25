@@ -3,4 +3,5 @@ export 'dart:js';
 export 'dart:html';
 export 'js_utils.dart';
 export 'css_utils.dart';
+export 'element_utils.dart';
 export 'package:js/js.dart';
