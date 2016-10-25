@@ -95,13 +95,15 @@ main() {
 
       expect(
           jsObjectAsCollection(new JsObject.jsify(map2), depth: 0), {'.': '.'});
-      expect(
-          jsObjectAsCollection(new JsObject.jsify(list2), depth: 0), ['..']);
-      expect(jsObjectAsCollection(new JsObject.jsify(map2), depth: 1),
-          {'map1': {'.': '.'}, 'list1': ['..']});
-      expect(
-          jsObjectAsCollection(new JsObject.jsify(list2), depth: 1),
-          [['..'], {'.': '.'}]);
+      expect(jsObjectAsCollection(new JsObject.jsify(list2), depth: 0), ['..']);
+      expect(jsObjectAsCollection(new JsObject.jsify(map2), depth: 1), {
+        'map1': {'.': '.'},
+        'list1': ['..']
+      });
+      expect(jsObjectAsCollection(new JsObject.jsify(list2), depth: 1), [
+        ['..'],
+        {'.': '.'}
+      ]);
     });
 
     test('jsObjectOrAnyAsJsObject', () {
@@ -133,11 +135,11 @@ main() {
       // print(jsObjectOrAnyAsCollection(new Car()).runtimeType);
 
       if (debugRunningAsJavascript) {
-        expect(jsObjectOrAnyAsCollection(car),
-            {"o": {"distance": 0, "drive": {}}});
+        expect(jsObjectOrAnyAsCollection(car), {
+          "o": {"distance": 0, "drive": {}}
+        });
       } else {
-        expect(
-            jsObjectOrAnyAsCollection(car), {"distance": 0, "drive": {}});
+        expect(jsObjectOrAnyAsCollection(car), {"distance": 0, "drive": {}});
       }
 
       //expect(jsObjectOrAnyAsCollection(new Car()), {"distance": 0, "drive": {}});

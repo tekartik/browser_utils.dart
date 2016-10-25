@@ -15,14 +15,14 @@ List<String> jsObjectKeys(JsObject jsObject) {
 /**
  * For JsObject of JsArray
  */
-dynamic jsObjectAsCollection(JsObject jsObject, { int depth }) {
+dynamic jsObjectAsCollection(JsObject jsObject, {int depth}) {
   if (jsObject is JsArray) {
     return jsArrayAsList(jsObject, depth: depth);
   }
   return jsObjectAsMap(jsObject, depth: depth);
 }
 
-List jsArrayAsList(JsArray jsArray, { int depth }) {
+List jsArrayAsList(JsArray jsArray, {int depth}) {
   if (jsArray == null) {
     return null;
   }
@@ -33,7 +33,7 @@ List jsArrayAsList(JsArray jsArray, { int depth }) {
 ///
 /// Handle element already in jsCollections
 ///
-Map jsObjectAsMap(JsObject jsObject, { int depth }) {
+Map jsObjectAsMap(JsObject jsObject, {int depth}) {
   if (jsObject == null) {
     return null;
   }
@@ -44,7 +44,7 @@ Map jsObjectAsMap(JsObject jsObject, { int depth }) {
 class _Converter {
   Map<JsObject, dynamic> jsCollections = {};
 
-  dynamic jsObjectToCollection(JsObject jsObject, { int depth }) {
+  dynamic jsObjectToCollection(JsObject jsObject, {int depth}) {
     if (jsCollections.containsKey(jsObject)) {
       return jsCollections[jsObject];
     }
@@ -57,13 +57,13 @@ class _Converter {
     }
   }
 
-  Map jsObjectToMap(JsObject jsObject, Map map, { int depth }) {
+  Map jsObjectToMap(JsObject jsObject, Map map, {int depth}) {
     jsCollections[jsObject] = map;
     List<String> keys = jsObjectKeys(jsObject);
 
     // Stop
     if (depth == 0) {
-      return {"." : "."};
+      return {".": "."};
     }
 
     // Handle recursive objects
@@ -71,14 +71,15 @@ class _Converter {
       var value = jsObject[key];
       if (value is JsObject) {
         // recursive
-        value = jsObjectToCollection(value, depth: depth == null ? null : depth - 1);
+        value = jsObjectToCollection(value,
+            depth: depth == null ? null : depth - 1);
       }
       map[key] = value;
     }
     return map;
   }
 
-  List jsArrayToList(JsArray jsArray, List list, { int depth }) {
+  List jsArrayToList(JsArray jsArray, List list, {int depth}) {
     if (depth == 0) {
       return [".."];
     }
@@ -86,8 +87,8 @@ class _Converter {
     for (int i = 0; i < jsArray.length; i++) {
       var value = jsArray[i];
       if (value is JsObject) {
-        value = jsObjectToCollection(
-            value, depth: depth == null ? null : depth - 1);
+        value = jsObjectToCollection(value,
+            depth: depth == null ? null : depth - 1);
       }
       list.add(value);
     }

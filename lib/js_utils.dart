@@ -92,9 +92,9 @@ dynamic jsObjectOrAnyAsCollection(dynamic object, {int depth}) {
   } else {
     // This does the conversion using the new js package and JS() annotations
     try {
-      object = jsObjectAsCollection(new JsObject.fromBrowserObject(object), depth: depth);
-    } catch (e) {
-    }
+      object = jsObjectAsCollection(new JsObject.fromBrowserObject(object),
+          depth: depth);
+    } catch (e) {}
     return object;
   }
 }
@@ -109,12 +109,10 @@ JsObject jsObjectOrAnyAsJsObject(dynamic object) {
     // This does the conversion using the new js package and JS() annotations
     try {
       return new JsObject.fromBrowserObject(object);
-    } catch (e) {
-    }
+    } catch (e) {}
     return null;
   }
 }
-
 
 // Good is 2 for deep object
 String jsObjectOrAnyToDebugString(dynamic object, {int depth}) {
@@ -131,7 +129,6 @@ String jsObjectOrAnyToDebugString(dynamic object, {int depth}) {
   }
 
   return object.toString();
-
 }
 
 String jsObjectToDebugString(JsObject jsObject, {int depth}) {
