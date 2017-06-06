@@ -1,3 +1,7 @@
+# 0.2.1
+
+- add loader for css/js to load script only once
+
 # 0.1.1
 
 - handle class object annotated with JS()

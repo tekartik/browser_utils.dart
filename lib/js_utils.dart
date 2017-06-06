@@ -4,6 +4,7 @@ import 'dart:js';
 import 'dart:async';
 import 'dart:html';
 import 'dart:typed_data';
+import 'package:tekartik_common_utils/async_utils.dart';
 
 part 'src/js_utils/jsobject_converter.dart';
 
@@ -41,6 +42,13 @@ Future debugLoadJavascriptScript(String src) {
   script.src = src;
   document.head.children.add(script);
   return completer.future;
+}
+
+/// Helper to load a javascript script only once
+class JavascriptScriptLoader extends AsyncOnceRunner {
+  JavascriptScriptLoader(String src): super(() => loadJavascriptScript(src));
+  get loaded => done;
+  FutureOr load() => run();
 }
 
 Future loadJavascriptScript(String src) {

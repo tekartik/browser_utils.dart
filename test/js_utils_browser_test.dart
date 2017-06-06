@@ -7,6 +7,8 @@ import 'dart:js';
 import 'package:dev_test/test.dart';
 import 'package:js/js.dart';
 import 'package:tekartik_browser_utils/js_utils.dart';
+import 'package:path/path.dart' hide context;
+
 //import 'dart:html';
 
 @JS('Car')
@@ -18,6 +20,12 @@ class Car {
   external int crash(Object distance);
 //external int drive(String distanceText);
 }
+
+@JS('tekartik_javascript_script_loader_js_script_text')
+external String get javascriptLoaderText;
+
+@JS('tekartik_javascript_script_loader_js_script_text')
+external set javascriptLoaderText(String text);
 
 main() {
   setUpAll(() {
@@ -172,6 +180,19 @@ main() {
         //print(e);
       }
       expect(failed, isTrue, reason: "script does not exits");
+    });
+
+    test('JavascriptScriptLoader', () async {
+      final JavascriptScriptLoader loader = new JavascriptScriptLoader(url.join('data', 'javascript_script_loader_js_script.js'));
+      expect(loader.loaded, isFalse);
+      expect(javascriptLoaderText, isNull);
+      await loader.load();
+      expect(javascriptLoaderText, "hello");
+      expect(loader.loaded, isTrue);
+      javascriptLoaderText = "new_hello";
+      expect(javascriptLoaderText, "new_hello");
+      await loader.load();
+      expect(javascriptLoaderText, "new_hello");
     });
 
     // Skipped when not debugging
