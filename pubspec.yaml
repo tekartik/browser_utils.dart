@@ -1,7 +1,8 @@
 name: tekartik_browser_utils
-version: 0.2.1
+version: 0.4.0
 description: Browser utils
 author: Alexandre Roux <alex@tekartik.com>
+homepage: https://github.com/tekartik/browser_utils.dart
 environment:
   sdk: '>=1.20.1 <2.0.0'
 dependencies:
@@ -9,8 +10,8 @@ dependencies:
   synchronized: any
   js: any
   tekartik_common_utils:
-    git: git://github.com/tekartik/tekartik_common_utils.dart
-    version: '>=0.3.2'
+    git: git://github.com/tekartik/common_utils.dart
+    version: '>=0.3.4'
 dev_dependencies:
   dev_test: any
   test: any
