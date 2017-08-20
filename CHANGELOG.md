@@ -1,3 +1,7 @@
+# 0.4.1
+
+- add printError
+
 # 0.2.1
 
 - add loader for css/js to load script only once

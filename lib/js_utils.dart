@@ -46,7 +46,7 @@ Future debugLoadJavascriptScript(String src) {
 
 /// Helper to load a javascript script only once
 class JavascriptScriptLoader extends AsyncOnceRunner {
-  JavascriptScriptLoader(String src): super(() => loadJavascriptScript(src));
+  JavascriptScriptLoader(String src) : super(() => loadJavascriptScript(src));
   get loaded => done;
   FutureOr load() => run();
 }

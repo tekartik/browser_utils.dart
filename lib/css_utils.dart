@@ -27,7 +27,7 @@ Future loadStylesheet(String src) {
 
 /// Helper to load a javascript script only once
 class StylesheetLoader extends AsyncOnceRunner {
-  StylesheetLoader(String src): super(() => loadStylesheet(src));
+  StylesheetLoader(String src) : super(() => loadStylesheet(src));
   get loaded => done;
   FutureOr load() => run();
 }

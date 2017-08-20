@@ -1,5 +1,5 @@
 name: tekartik_browser_utils
-version: 0.4.0
+version: 0.4.1
 description: Browser utils
 author: Alexandre Roux <alex@tekartik.com>
 homepage: https://github.com/tekartik/browser_utils.dart
@@ -20,3 +20,9 @@ dev_dependencies:
 dependency_overrides:
 #  tekartik_common_utils:
 #    path: /opt/devx/git/github.com/tekartik/tekartik_common_utils.dart
+
+# Uncomment the following in sdk 1.24+ to make pub serve
+# use dartdevc (webdev.dartlang.org/tools/dartdevc).
+web:
+  compiler:
+    debug: dartdevc

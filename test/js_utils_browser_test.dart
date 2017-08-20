@@ -183,7 +183,8 @@ main() {
     });
 
     test('JavascriptScriptLoader', () async {
-      final JavascriptScriptLoader loader = new JavascriptScriptLoader(url.join('data', 'javascript_script_loader_js_script.js'));
+      final JavascriptScriptLoader loader = new JavascriptScriptLoader(
+          url.join('data', 'javascript_script_loader_js_script.js'));
       expect(loader.loaded, isFalse);
       expect(javascriptLoaderText, isNull);
       await loader.load();
