@@ -1,3 +1,7 @@
+# 0.5.1
+
+- add favicon.ico
+
 # 0.5.0
 
 - add location utils
