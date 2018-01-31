@@ -28,3 +28,6 @@ pubspec.lock
 
 # WebStorm
 .idea/
+
+# Local env files
+.local/

@@ -8,13 +8,20 @@ import 'package:tekartik_browser_utils/browser_utils_import.dart';
 // make we need no other import
 main() {
   setUpAll(() {
-    loadJavascriptScript('js_utils_browser_test.js');
+    //loadJavascriptScript('js_utils_browser_test.js');
   });
+
+  /*
+  group('browser_utils_import', () {
+    expect(true, isTrue);
+  });
+  */
+
   group('Import', () {
     test('css', () async {
       await loadStylesheet("data/simple_stylesheet.css");
     });
-    test('css', () async {
+    test('js', () async {
       await loadJavascriptScript("data/simple_script.js");
     });
   });

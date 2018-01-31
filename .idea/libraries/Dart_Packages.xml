@@ -54,7 +54,7 @@
         <entry key="chrome_travis">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/git/chrome_travis-a4bb46fe35e5245a87f43af3302624753487a4eb/lib" />
+              <option value="$USER_HOME$/.pub-cache/git/chrome_travis.dart-a4bb46fe35e5245a87f43af3302624753487a4eb/lib" />
             </list>
           </value>
         </entry>
@@ -334,7 +334,7 @@
         <entry key="tekartik_common_utils">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/git/tekartik_common_utils-1eb161e7ac823a7a2a386740d35c8078a6a7ed03/lib" />
+              <option value="$USER_HOME$/.pub-cache/git/common_utils.dart-1eb161e7ac823a7a2a386740d35c8078a6a7ed03/lib" />
             </list>
           </value>
         </entry>
@@ -390,8 +390,8 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/.pub-cache/git/chrome_travis-a4bb46fe35e5245a87f43af3302624753487a4eb/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/git/tekartik_common_utils-1eb161e7ac823a7a2a386740d35c8078a6a7ed03/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/git/chrome_travis.dart-a4bb46fe35e5245a87f43af3302624753487a4eb/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/git/common_utils.dart-1eb161e7ac823a7a2a386740d35c8078a6a7ed03/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/analyzer-0.30.0+2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/args-0.13.7/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/async-1.13.3/lib" />
@@ -446,6 +446,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/web_socket_channel-1.0.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/yaml-2.1.12/lib" />
     </CLASSES>
+    <JAVADOC />
     <SOURCES />
   </library>
 </component>
