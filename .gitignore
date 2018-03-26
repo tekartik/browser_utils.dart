@@ -28,6 +28,7 @@ pubspec.lock
 
 # WebStorm
 .idea/
+*.iml
 
 # Local env files
 .local/
