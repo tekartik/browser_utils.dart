@@ -1,4 +1,4 @@
-part of tekartik_browser_utils_js_utils;
+import 'dart:js';
 
 List<String> jsObjectKeys(JsObject jsObject) {
   if (jsObject is JsArray) {
