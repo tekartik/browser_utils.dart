@@ -10,13 +10,17 @@ dependencies:
   synchronized: any
   js: any
   tekartik_common_utils:
-    git: git://github.com/tekartik/common_utils.dart
+    git:
+      url: git://github.com/tekartik/common_utils.dart
+      ref: dart1
     version: '>=0.4.6'
 dev_dependencies:
   dev_test: any
   test: any
   chrome_travis:
-    git: git://github.com/tekartik/chrome_travis.dart
+    git:
+      url: git://github.com/tekartik/chrome_travis.dart
+      ref: dart1
 dependency_overrides:
 #  tekartik_common_utils:
 #    path: /opt/devx/git/github.com/tekartik/tekartik_common_utils.dart
