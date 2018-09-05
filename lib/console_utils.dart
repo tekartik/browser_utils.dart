@@ -1,7 +1,7 @@
 import 'package:stack_trace/stack_trace.dart';
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
 
-void printError(e, [st]) {
+void printError(e, [StackTrace st]) {
   try {
     window.console.error(e);
   } catch (_) {

@@ -12,7 +12,7 @@ dynamic jsObjectAsCollection(dynamic jsObject, {int depth}) {
   return jsObjectAsMap(jsObject, depth: depth);
 }
 
-List jsArrayAsList(dynamic jsArray, {int depth}) {
+List jsArrayAsList(List jsArray, {int depth}) {
   if (jsArray == null) {
     return null;
   }
@@ -52,7 +52,7 @@ class _Converter {
     }
     if (jsIsList(jsObject)) {
       // create the list before
-      return jsArrayToList(jsObject, [], depth: depth);
+      return jsArrayToList(jsObject as List, [], depth: depth);
     } else {
       // create the map before for recursive object
       return jsObjectToMap(jsObject, {}, depth: depth);
@@ -81,7 +81,7 @@ class _Converter {
     return map;
   }
 
-  List jsArrayToList(dynamic jsArray, List list, {int depth}) {
+  List jsArrayToList(List jsArray, List list, {int depth}) {
     if (depth == 0) {
       return [".."];
     }

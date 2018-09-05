@@ -25,7 +25,7 @@ class JsMap<V> extends MapBase<String, dynamic> {
     // if the map is not generic
     if (V == dynamic) prop = new JsMap(prop);
 
-    return prop;
+    return prop as V;
   }
 
   @override

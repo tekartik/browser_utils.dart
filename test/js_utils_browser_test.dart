@@ -92,14 +92,14 @@ main() {
       var testDart = [1, "text", null];
       expect(testDart.toString(), "[1, text, null]");
       var jsArray = jsify(testDart);
-      expect(jsArrayAsList(jsArray), testDart);
+      expect(jsArrayAsList(jsArray as List), testDart);
 
       testDart = [];
       testDart.add(testDart);
       expect(testDart.toString(), "[[...]]");
       jsArray = jsify([]);
       jsArray.add(jsArray);
-      expect(jsArrayAsList(jsArray).toString(), "[[...]]");
+      expect(jsArrayAsList(jsArray as List).toString(), "[[...]]");
     });
 
     test('asCollection', () {

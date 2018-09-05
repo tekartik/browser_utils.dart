@@ -1,10 +1,7 @@
 @TestOn("browser")
 library tekartik_browser_utils.test.js_map_test;
 
-import 'package:js/js_util.dart';
-
 import 'package:dev_test/test.dart';
-import 'package:tekartik_browser_utils/js_map.dart';
 import 'package:tekartik_browser_utils/js_utils.dart';
 
 main() {
