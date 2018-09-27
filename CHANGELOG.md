@@ -1,3 +1,7 @@
+# 0.6.2
+
+- add `implicit-casts: false`
+
 # 0.5.1
 
 - add favicon.ico

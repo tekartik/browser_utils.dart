@@ -1,12 +1,16 @@
 library tekartik_browser_utils_js_utils;
 
-import 'dart:js';
 import 'dart:async';
 import 'dart:html';
-import 'dart:typed_data';
+
 import 'package:tekartik_common_utils/async_utils.dart';
 
-part 'src/js_utils/jsobject_converter.dart';
+import 'src/js_utils/js_converter.dart' as _;
+
+export 'src/js_utils/js_converter.dart'
+    show jsArrayAsList, jsObjectAsCollection;
+export 'src/js_utils/js_interop.dart';
+export 'src/js_utils/js_utils.dart' show jsRuntimeType;
 
 Future debugLoadJavascriptScript(String src) {
   Completer completer = new Completer();
@@ -18,7 +22,7 @@ Future debugLoadJavascriptScript(String src) {
     // onError, onDone are never called
     print('dbg_onError($e): ${src}');
     completer.completeError(new Exception('script $src not loaded'));
-  }, onError: (e, st) {
+  }, onError: (e, StackTrace st) {
     // never called
     print('onErrorError: ${src}');
     completer.completeError(e, st);
@@ -31,7 +35,7 @@ Future debugLoadJavascriptScript(String src) {
     // onError, onDone are never called
     print('dbg_onLoad: ${src}');
     completer.complete();
-  }, onError: (e, st) {
+  }, onError: (e, StackTrace st) {
     // never called
     print('onError: ${src}');
     completer.completeError(e, st);
@@ -47,7 +51,9 @@ Future debugLoadJavascriptScript(String src) {
 /// Helper to load a javascript script only once
 class JavascriptScriptLoader extends AsyncOnceRunner {
   JavascriptScriptLoader(String src) : super(() => loadJavascriptScript(src));
+
   get loaded => done;
+
   FutureOr load() => run();
 }
 
@@ -70,10 +76,11 @@ Future loadJavascriptScript(String src) {
   return completer.future;
 }
 
-String jsRuntimeType(JsObject jsObject) {
-  return jsObject['constructor']['name'].toString();
+Map<String, dynamic> jsObjectAsMap(dynamic jsObject, {int depth}) {
+  return _.jsObjectAsMap(jsObject, depth: depth)?.cast<String, dynamic>();
 }
 
+/*
 JsObject jsUint8Array(Uint8List list) {
   return new JsObject(context['Uint8Array'], [list]);
 }
@@ -138,12 +145,12 @@ String jsObjectOrAnyToDebugString(dynamic object, {int depth}) {
 
   return object.toString();
 }
-
-String jsObjectToDebugString(JsObject jsObject, {int depth}) {
+*/
+String jsObjectToDebugString(dynamic jsObject, {int depth}) {
   if (jsObject == null) {
     return null;
   }
-  return jsObjectAsCollection(jsObject, depth: depth).toString();
+  return _.jsObjectAsCollection(jsObject, depth: depth).toString();
 }
 
 bool get _runningAsJavascript => identical(1, 1.0);

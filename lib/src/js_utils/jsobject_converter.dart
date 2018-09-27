@@ -1,4 +1,4 @@
-part of tekartik_browser_utils_js_utils;
+import 'dart:js';
 
 List<String> jsObjectKeys(JsObject jsObject) {
   if (jsObject is JsArray) {
@@ -7,7 +7,7 @@ List<String> jsObjectKeys(JsObject jsObject) {
   JsArray jsKeys = context['Object'].callMethod('keys', [jsObject]);
   List<String> keys = new List();
   for (int i = 0; i < jsKeys.length; i++) {
-    keys.add(jsKeys[i]);
+    keys.add(jsKeys[i] as String);
   }
   return keys;
 }
@@ -71,7 +71,7 @@ class _Converter {
       var value = jsObject[key];
       if (value is JsObject) {
         // recursive
-        value = jsObjectToCollection(value,
+        value = jsObjectToCollection(value as JsObject,
             depth: depth == null ? null : depth - 1);
       }
       map[key] = value;
@@ -87,7 +87,7 @@ class _Converter {
     for (int i = 0; i < jsArray.length; i++) {
       var value = jsArray[i];
       if (value is JsObject) {
-        value = jsObjectToCollection(value,
+        value = jsObjectToCollection(value as JsObject,
             depth: depth == null ? null : depth - 1);
       }
       list.add(value);

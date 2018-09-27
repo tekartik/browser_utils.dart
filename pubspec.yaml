@@ -1,28 +1,25 @@
 name: tekartik_browser_utils
-version: 0.5.1
+version: 0.6.2
 description: Browser utils
 author: Alexandre Roux <alex@tekartik.com>
 homepage: https://github.com/tekartik/browser_utils.dart
 environment:
-  sdk: '>=1.20.1 <2.0.0'
+  sdk: '>=2.0.0-dev.58 <3.0.0'
 dependencies:
-  browser: any
   synchronized: any
   js: any
   tekartik_common_utils:
-    git: git://github.com/tekartik/common_utils.dart
-    version: '>=0.4.6'
+    git:
+      url: git://github.com/tekartik/common_utils.dart
+      ref: dart2
+    version: '>=0.6.5'
 dev_dependencies:
   dev_test: any
-  test: any
+  test: '>=1.2.0'
   chrome_travis:
-    git: git://github.com/tekartik/chrome_travis.dart
-dependency_overrides:
-#  tekartik_common_utils:
-#    path: /opt/devx/git/github.com/tekartik/tekartik_common_utils.dart
-
-# Uncomment the following in sdk 1.24+ to make pub serve
-# use dartdevc (webdev.dartlang.org/tools/dartdevc).
-web:
-  compiler:
-    debug: dartdevc
+    git:
+      url: git://github.com/tekartik/chrome_travis.dart
+      ref: dart2
+  build_runner: '>=0.9.1'
+  build_test: '>=0.10.2'
+  build_web_compilers: '>=0.4.0'
