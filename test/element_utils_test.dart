@@ -6,7 +6,7 @@ import 'dart:html';
 main() {
   group('element_utils', () {
     test('disabled', () {
-      Element element = new DivElement();
+      Element element = DivElement();
       expect(isDisabled(element), isFalse);
       expect(isEnabled(element), isTrue);
       setDisabled(element, true);
@@ -18,7 +18,7 @@ main() {
     });
 
     test('find', () {
-      Element element = new DivElement()
+      Element element = DivElement()
         ..id = "test"
         ..classes = ["test"];
       expect(findFirstAncestorWithClass(element, "test", true), element);
@@ -26,7 +26,7 @@ main() {
       expect(findFirstAncestorWithClass(element, "test"), isNull);
       expect(findFirstAncestorWithId(element, "test"), isNull);
 
-      Element child = new DivElement()
+      Element child = DivElement()
         ..id = "child"
         ..classes = ["child"];
       element.append(child);

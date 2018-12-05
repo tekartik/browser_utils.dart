@@ -8,7 +8,7 @@ import 'package:tekartik_browser_utils/src/location_info_common_utils.dart';
 void main() {
   group('location', () {
     test('fromLocation', () {
-      MockLocationInfo locationInfo = new MockLocationInfo();
+      MockLocationInfo locationInfo = MockLocationInfo();
       expect(locationInfo.arguments, isNotNull);
     });
 

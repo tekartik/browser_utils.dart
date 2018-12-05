@@ -11,7 +11,7 @@ main() {
       printError("An error message");
       print("A console message");
       try {
-        throw new UnsupportedError("testing stack trace");
+        throw UnsupportedError("testing stack trace");
       } catch (e, st) {
         printError(e, st);
       }

@@ -23,7 +23,7 @@ class JsMap<V> extends MapBase<String, dynamic> {
     dynamic prop = getProperty(_jsObject, key.toString());
 
     // if the map is not generic
-    if (V == dynamic) prop = new JsMap(prop);
+    if (V == dynamic) prop = JsMap(prop);
 
     return prop as V;
   }

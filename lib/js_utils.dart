@@ -13,15 +13,15 @@ export 'src/js_utils/js_interop.dart';
 export 'src/js_utils/js_utils.dart' show jsRuntimeType;
 
 Future debugLoadJavascriptScript(String src) {
-  Completer completer = new Completer();
-  var script = new ScriptElement();
+  Completer completer = Completer();
+  var script = ScriptElement();
   print('dbg_loading: ${src}');
   script.type = 'text/javascript';
   script.onError.listen((e) {
     // This is actually the only callback called upon success
     // onError, onDone are never called
     print('dbg_onError($e): ${src}');
-    completer.completeError(new Exception('script $src not loaded'));
+    completer.completeError(Exception('script $src not loaded'));
   }, onError: (e, StackTrace st) {
     // never called
     print('onErrorError: ${src}');
@@ -58,13 +58,13 @@ class JavascriptScriptLoader extends AsyncOnceRunner {
 }
 
 Future loadJavascriptScript(String src) {
-  Completer completer = new Completer();
-  var script = new ScriptElement();
+  Completer completer = Completer();
+  var script = ScriptElement();
   script.type = 'text/javascript';
   script.onError.listen((e) {
     // This is actually the only callback called upon success
     // onError, onDone are never called
-    completer.completeError(new Exception('script $src not loaded'));
+    completer.completeError(Exception('script $src not loaded'));
   });
   script.onLoad.listen((_) {
     // This is actually the only callback called upon success

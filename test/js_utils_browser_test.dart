@@ -42,7 +42,7 @@ main() {
   });
   group('JsObject', () {
     test('anonymous', () {
-      var withIntValue = new WithIntValue();
+      var withIntValue = WithIntValue();
       expect(jsObjectKeys(withIntValue), []);
       withIntValue.value = 1;
       expect(jsObjectKeys(withIntValue), ['value']);
@@ -65,7 +65,7 @@ main() {
       setProperty(jsObject, 'value', 1);
       expect(jsObjectAsMap(jsObject), {'value': 1});
 
-      var withIntValue = new WithIntValue();
+      var withIntValue = WithIntValue();
       expect(jsObjectAsMap(withIntValue), {});
       withIntValue.value = 1;
       expect(jsObjectAsMap(withIntValue), {'value': 1});
@@ -207,7 +207,7 @@ main() {
     });
 
     test('JavascriptScriptLoader', () async {
-      final JavascriptScriptLoader loader = new JavascriptScriptLoader(
+      final JavascriptScriptLoader loader = JavascriptScriptLoader(
           url.join('data', 'javascript_script_loader_js_script.js'));
       expect(loader.loaded, isFalse);
       expect(javascriptLoaderText, isNull);

@@ -21,7 +21,7 @@ main() {
     });
 
     test('stylesheetLoader', () async {
-      final StylesheetLoader loader = new StylesheetLoader(
+      final StylesheetLoader loader = StylesheetLoader(
           url.join('data', 'stylesheet_loader_stylesheet.css'));
       expect(
           document.head.querySelector(
@@ -49,7 +49,7 @@ main() {
     });
 
     test('stylesheetLoader fail', () async {
-      final StylesheetLoader loader = new StylesheetLoader(
+      final StylesheetLoader loader = StylesheetLoader(
           url.join('data', 'DUMMY_stylesheet_loader_stylesheet.css'));
 
       try {
