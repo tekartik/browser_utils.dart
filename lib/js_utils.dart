@@ -5,7 +5,7 @@ import 'dart:html';
 
 import 'package:tekartik_common_utils/async_utils.dart';
 
-import 'src/js_utils/js_converter.dart' as _;
+import 'src/js_utils/js_converter.dart' as js_converter;
 
 export 'src/js_utils/js_converter.dart'
     show jsArrayAsList, jsObjectAsCollection;
@@ -52,7 +52,7 @@ Future debugLoadJavascriptScript(String src) {
 class JavascriptScriptLoader extends AsyncOnceRunner {
   JavascriptScriptLoader(String src) : super(() => loadJavascriptScript(src));
 
-  get loaded => done;
+  bool get loaded => done;
 
   FutureOr load() => run();
 }
@@ -77,7 +77,9 @@ Future loadJavascriptScript(String src) {
 }
 
 Map<String, dynamic> jsObjectAsMap(dynamic jsObject, {int depth}) {
-  return _.jsObjectAsMap(jsObject, depth: depth)?.cast<String, dynamic>();
+  return js_converter
+      .jsObjectAsMap(jsObject, depth: depth)
+      ?.cast<String, dynamic>();
 }
 
 /*
@@ -150,7 +152,7 @@ String jsObjectToDebugString(dynamic jsObject, {int depth}) {
   if (jsObject == null) {
     return null;
   }
-  return _.jsObjectAsCollection(jsObject, depth: depth).toString();
+  return js_converter.jsObjectAsCollection(jsObject, depth: depth).toString();
 }
 
 bool get _runningAsJavascript => identical(1, 1.0);

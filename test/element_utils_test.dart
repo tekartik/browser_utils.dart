@@ -1,9 +1,10 @@
+import 'dart:html';
+
 @TestOn("!vm")
 import 'package:dev_test/test.dart';
 import 'package:tekartik_browser_utils/element_utils.dart';
-import 'dart:html';
 
-main() {
+void main() {
   group('element_utils', () {
     test('disabled', () {
       Element element = DivElement();

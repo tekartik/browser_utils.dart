@@ -33,7 +33,7 @@ class JsMap<V> extends MapBase<String, dynamic> {
       setProperty(_jsObject, key.toString(), value);
 
   @override
-  remove(Object key) {
+  dynamic remove(Object key) {
     throw "Not implemented yet for JsMap, sorry";
   }
 

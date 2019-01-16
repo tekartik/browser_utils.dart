@@ -5,7 +5,7 @@ import 'package:tekartik_browser_utils/console_utils.dart';
 
 import 'package:dev_test/test.dart';
 
-main() {
+void main() {
   group('console_utils', () {
     test('printError', () async {
       printError("An error message");

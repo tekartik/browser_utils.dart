@@ -5,6 +5,7 @@ import 'dart:html';
 ///
 class NullTreeSanitizer implements NodeTreeSanitizer {
   const NullTreeSanitizer();
+  @override
   void sanitizeTree(Node node) {}
 }
 

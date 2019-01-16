@@ -36,7 +36,7 @@ external String get javascriptLoaderText;
 @JS('tekartik_javascript_script_loader_js_script_text')
 external set javascriptLoaderText(String text);
 
-main() {
+void main() {
   setUpAll(() {
     loadJavascriptScript('js_utils_browser_test.js');
   });

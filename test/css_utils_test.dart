@@ -1,11 +1,11 @@
-@TestOn("!vm")
-import 'package:tekartik_browser_utils/css_utils.dart';
-import 'package:dev_test/test.dart';
 import 'dart:html';
 
+import 'package:dev_test/test.dart';
 import 'package:path/path.dart';
+@TestOn("!vm")
+import 'package:tekartik_browser_utils/css_utils.dart';
 
-main() {
+void main() {
   group('css', () {
     test('loadCss', () async {
       // <link type="text/css" href="data/simple_stylesheet.css" rel="stylesheet">
