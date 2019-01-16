@@ -2,9 +2,7 @@ import 'package:js/js_util.dart';
 import 'package:tekartik_browser_utils/src/js_utils/js_interop.dart';
 import 'package:tekartik_browser_utils/src/js_utils/js_utils.dart';
 
-/**
- * For JsObject of JsArray
- */
+/// For JsObject of JsArray
 dynamic jsObjectAsCollection(dynamic jsObject, {int depth}) {
   if (jsObject is List) {
     return jsArrayAsList(jsObject, depth: depth);
@@ -16,7 +14,7 @@ List jsArrayAsList(List jsArray, {int depth}) {
   if (jsArray == null) {
     return null;
   }
-  var converter = new _Converter();
+  var converter = _Converter();
   return converter.jsArrayToList(jsArray, [], depth: depth);
 }
 
@@ -27,7 +25,7 @@ Map jsObjectAsMap(dynamic jsObject, {int depth}) {
   if (jsObject == null) {
     return null;
   }
-  var converter = new _Converter();
+  var converter = _Converter();
   return converter.jsObjectToMap(jsObject, {}, depth: depth);
 }
 

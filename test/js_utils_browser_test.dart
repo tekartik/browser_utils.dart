@@ -1,12 +1,12 @@
-@TestOn("!vm")
+@TestOn("browser")
 @JS()
-library js_utils_browser_test.dart;
+library tekartik_browser_utils.test.js_utils_browser_test;
 
 import 'package:dev_test/test.dart';
 import 'package:js/js.dart';
 import 'package:js/js_util.dart';
-import 'package:tekartik_browser_utils/js_utils.dart';
 import 'package:path/path.dart' hide context;
+import 'package:tekartik_browser_utils/js_utils.dart';
 
 import 'data/js_binding.dart';
 
@@ -26,7 +26,9 @@ class Car {
 @JS('WithIntValue')
 class WithIntValue {
   external int get value;
+
   external set value(int value);
+
   external factory WithIntValue({int value});
 }
 
@@ -36,13 +38,13 @@ external String get javascriptLoaderText;
 @JS('tekartik_javascript_script_loader_js_script_text')
 external set javascriptLoaderText(String text);
 
-main() {
+void main() {
   setUpAll(() {
     loadJavascriptScript('js_utils_browser_test.js');
   });
   group('JsObject', () {
     test('anonymous', () {
-      var withIntValue = new WithIntValue();
+      var withIntValue = WithIntValue();
       expect(jsObjectKeys(withIntValue), []);
       withIntValue.value = 1;
       expect(jsObjectKeys(withIntValue), ['value']);
@@ -65,7 +67,7 @@ main() {
       setProperty(jsObject, 'value', 1);
       expect(jsObjectAsMap(jsObject), {'value': 1});
 
-      var withIntValue = new WithIntValue();
+      var withIntValue = WithIntValue();
       expect(jsObjectAsMap(withIntValue), {});
       withIntValue.value = 1;
       expect(jsObjectAsMap(withIntValue), {'value': 1});
@@ -207,7 +209,7 @@ main() {
     });
 
     test('JavascriptScriptLoader', () async {
-      final JavascriptScriptLoader loader = new JavascriptScriptLoader(
+      final JavascriptScriptLoader loader = JavascriptScriptLoader(
           url.join('data', 'javascript_script_loader_js_script.js'));
       expect(loader.loaded, isFalse);
       expect(javascriptLoaderText, isNull);

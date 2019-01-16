@@ -1,12 +1,15 @@
-@TestOn("!vm")
-import 'package:dev_test/test.dart';
-import 'package:tekartik_browser_utils/element_utils.dart';
+@TestOn("browser")
+library tekartik_browser_utils.test.element_utils_test;
+
 import 'dart:html';
 
-main() {
+import 'package:dev_test/test.dart';
+import 'package:tekartik_browser_utils/element_utils.dart';
+
+void main() {
   group('element_utils', () {
     test('disabled', () {
-      Element element = new DivElement();
+      Element element = DivElement();
       expect(isDisabled(element), isFalse);
       expect(isEnabled(element), isTrue);
       setDisabled(element, true);
@@ -18,7 +21,7 @@ main() {
     });
 
     test('find', () {
-      Element element = new DivElement()
+      Element element = DivElement()
         ..id = "test"
         ..classes = ["test"];
       expect(findFirstAncestorWithClass(element, "test", true), element);
@@ -26,7 +29,7 @@ main() {
       expect(findFirstAncestorWithClass(element, "test"), isNull);
       expect(findFirstAncestorWithId(element, "test"), isNull);
 
-      Element child = new DivElement()
+      Element child = DivElement()
         ..id = "child"
         ..classes = ["child"];
       element.append(child);

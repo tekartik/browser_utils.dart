@@ -8,6 +8,6 @@ LocationInfo _locationInfo;
 LocationInfo get locationInfo =>
     _locationInfo ??
     () {
-      _locationInfo = new BrowserLocationInfo(window.location);
+      _locationInfo = BrowserLocationInfo(window.location);
       return _locationInfo;
     }();

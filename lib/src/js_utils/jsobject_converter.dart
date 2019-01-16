@@ -2,19 +2,17 @@ import 'dart:js';
 
 List<String> jsObjectKeys(JsObject jsObject) {
   if (jsObject is JsArray) {
-    throw new ArgumentError('object is an array');
+    throw ArgumentError('object is an array');
   }
   JsArray jsKeys = context['Object'].callMethod('keys', [jsObject]);
-  List<String> keys = new List();
+  List<String> keys = [];
   for (int i = 0; i < jsKeys.length; i++) {
     keys.add(jsKeys[i] as String);
   }
   return keys;
 }
 
-/**
- * For JsObject of JsArray
- */
+/// For JsObject of JsArray
 dynamic jsObjectAsCollection(JsObject jsObject, {int depth}) {
   if (jsObject is JsArray) {
     return jsArrayAsList(jsObject, depth: depth);
@@ -26,7 +24,7 @@ List jsArrayAsList(JsArray jsArray, {int depth}) {
   if (jsArray == null) {
     return null;
   }
-  _Converter context = new _Converter();
+  _Converter context = _Converter();
   return context.jsArrayToList(jsArray, [], depth: depth);
 }
 
@@ -37,7 +35,7 @@ Map jsObjectAsMap(JsObject jsObject, {int depth}) {
   if (jsObject == null) {
     return null;
   }
-  _Converter context = new _Converter();
+  _Converter context = _Converter();
   return context.jsObjectToMap(jsObject, {}, depth: depth);
 }
 

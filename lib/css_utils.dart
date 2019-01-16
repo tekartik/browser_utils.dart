@@ -6,13 +6,13 @@ import 'dart:html';
 import 'package:tekartik_common_utils/async_utils.dart';
 
 Future loadStylesheet(String src) {
-  Completer completer = new Completer();
-  var link = new LinkElement();
+  Completer completer = Completer();
+  var link = LinkElement();
   link.type = 'text/css';
   link.onError.listen((e) {
     // This is actually the only callback called upon success
     // onError, onDone are never called
-    completer.completeError(new Exception('stylesheet $src not loaded'));
+    completer.completeError(Exception('stylesheet $src not loaded'));
   });
   link.onLoad.listen((_) {
     // This is actually the only callback called upon success
@@ -28,6 +28,6 @@ Future loadStylesheet(String src) {
 /// Helper to load a javascript script only once
 class StylesheetLoader extends AsyncOnceRunner {
   StylesheetLoader(String src) : super(() => loadStylesheet(src));
-  get loaded => done;
+  bool get loaded => done;
   FutureOr load() => run();
 }

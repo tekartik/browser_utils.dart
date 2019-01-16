@@ -1,11 +1,13 @@
-@TestOn("!vm")
-import 'package:tekartik_browser_utils/css_utils.dart';
-import 'package:dev_test/test.dart';
+@TestOn("browser")
+library tekartik_browser_utils.test.css_utils_test;
+
 import 'dart:html';
 
+import 'package:dev_test/test.dart';
 import 'package:path/path.dart';
+import 'package:tekartik_browser_utils/css_utils.dart';
 
-main() {
+void main() {
   group('css', () {
     test('loadCss', () async {
       // <link type="text/css" href="data/simple_stylesheet.css" rel="stylesheet">
@@ -21,7 +23,7 @@ main() {
     });
 
     test('stylesheetLoader', () async {
-      final StylesheetLoader loader = new StylesheetLoader(
+      final StylesheetLoader loader = StylesheetLoader(
           url.join('data', 'stylesheet_loader_stylesheet.css'));
       expect(
           document.head.querySelector(
@@ -49,7 +51,7 @@ main() {
     });
 
     test('stylesheetLoader fail', () async {
-      final StylesheetLoader loader = new StylesheetLoader(
+      final StylesheetLoader loader = StylesheetLoader(
           url.join('data', 'DUMMY_stylesheet_loader_stylesheet.css'));
 
       try {

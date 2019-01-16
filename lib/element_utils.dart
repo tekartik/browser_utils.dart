@@ -1,5 +1,18 @@
 import 'dart:html';
 
+///
+/// Sanitizer which does nothing.
+///
+class NullTreeSanitizer implements NodeTreeSanitizer {
+  const NullTreeSanitizer();
+  @override
+  void sanitizeTree(Node node) {}
+}
+
+/// Usage
+/// element.setInnerHtml(content, treeSanitizer: nullTreeSanitizer);
+const nullTreeSanitizer = NullTreeSanitizer();
+
 void setDisabled(Element element, bool disabled) {
   if (disabled == true) {
     element.attributes['disabled'] = '';

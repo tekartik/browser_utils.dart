@@ -5,11 +5,15 @@ import 'package:tekartik_browser_utils/src/location_info_common_utils.dart';
 class BrowserLocationInfo implements LocationInfo {
   final Location location;
   // never null
+  @override
   final Map<String, String> arguments;
   BrowserLocationInfo(this.location)
       : arguments = locationSearchGetArguments(location.search);
 
+  @override
   String get host => location.host;
+
+  @override
   String get path => location.pathname;
 
   @override
