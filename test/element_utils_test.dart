@@ -1,6 +1,8 @@
+@TestOn("browser")
+library tekartik_browser_utils.test.element_utils_test;
+
 import 'dart:html';
 
-@TestOn("!vm")
 import 'package:dev_test/test.dart';
 import 'package:tekartik_browser_utils/element_utils.dart';
 

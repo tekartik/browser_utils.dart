@@ -1,12 +1,12 @@
-@TestOn("!vm")
+@TestOn("browser")
 @JS()
-library js_utils_browser_test.dart;
+library tekartik_browser_utils.test.js_utils_browser_test;
 
 import 'package:dev_test/test.dart';
 import 'package:js/js.dart';
 import 'package:js/js_util.dart';
-import 'package:tekartik_browser_utils/js_utils.dart';
 import 'package:path/path.dart' hide context;
+import 'package:tekartik_browser_utils/js_utils.dart';
 
 import 'data/js_binding.dart';
 
@@ -26,7 +26,9 @@ class Car {
 @JS('WithIntValue')
 class WithIntValue {
   external int get value;
+
   external set value(int value);
+
   external factory WithIntValue({int value});
 }
 
