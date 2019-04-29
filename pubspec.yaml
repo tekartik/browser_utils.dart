@@ -1,5 +1,5 @@
 name: tekartik_browser_utils
-version: 0.6.8
+version: 0.6.8+1
 description: Browser utils
 author: Alexandre Roux <alex@tekartik.com>
 homepage: https://github.com/tekartik/browser_utils.dart
@@ -15,6 +15,7 @@ dependencies:
     version: '>=0.9.3+2'
   stack_trace:
 dev_dependencies:
+  process_run: '>=0.10.0+1'
   dev_test: any
   test: '>=1.2.0'
   chrome_travis:
@@ -23,4 +24,4 @@ dev_dependencies:
       ref: dart2
   build_runner: '>=0.9.1'
   build_test: '>=0.10.2'
-  build_web_compilers: '>=0.4.0'
+  build_web_compilers: '^1.2.0'
