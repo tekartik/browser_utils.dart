@@ -4,7 +4,7 @@ List<String> jsObjectKeys(JsObject jsObject) {
   if (jsObject is JsArray) {
     throw ArgumentError('object is an array');
   }
-  JsArray jsKeys = context['Object'].callMethod('keys', [jsObject]);
+  JsArray jsKeys = context['Object'].callMethod('keys', [jsObject]) as JsArray;
   List<String> keys = [];
   for (int i = 0; i < jsKeys.length; i++) {
     keys.add(jsKeys[i] as String);
