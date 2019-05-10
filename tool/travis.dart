@@ -22,10 +22,11 @@ Future main() async {
   ''');
 
   // Fails on Dart 2.1.1
+  // Fail on Firefox on Dart 2.3.1
   var dartVersion = parsePlatformVersion(Platform.version);
   if (dartVersion >= Version(2, 2, 0, pre: 'dev')) {
     await shell.run('''
-    pub run build_runner test -- -p chrome,firefox
+    pub run build_runner test -- -p chrome
   ''');
   }
 
