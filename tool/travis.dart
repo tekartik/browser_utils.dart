@@ -16,9 +16,9 @@ Future main() async {
   dartfmt -w lib test tool example --set-exit-if-changed
 
   pub run test -p vm
-  pub run build_runner test -- -p vm test/multiplatform
-  
   pub run test -p chrome,firefox
+  # pub run build_runner test -- -p vm test/multiplatform
+  
   ''');
 
   // Fails on Dart 2.1.1
