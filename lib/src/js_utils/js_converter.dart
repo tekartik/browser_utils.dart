@@ -59,15 +59,15 @@ class _Converter {
 
   Map jsObjectToMap(dynamic jsObject, Map map, {int depth}) {
     jsCollections[jsObject] = map;
-    List<String> keys = jsObjectKeys(jsObject);
+    final keys = jsObjectKeys(jsObject);
 
     // Stop
     if (depth == 0) {
-      return {".": "."};
+      return {'.': '.'};
     }
 
     // Handle recursive objects
-    for (String key in keys) {
+    for (var key in keys) {
       var value = getProperty(jsObject, key);
       if (jsIsCollection(value)) {
         // recursive
@@ -81,10 +81,10 @@ class _Converter {
 
   List jsArrayToList(List jsArray, List list, {int depth}) {
     if (depth == 0) {
-      return [".."];
+      return ['..'];
     }
     jsCollections[jsArray] = list;
-    for (int i = 0; i < jsArray.length; i++) {
+    for (var i = 0; i < jsArray.length; i++) {
       var value = jsArray[i];
       if (jsIsCollection(value)) {
         value = jsObjectToCollection(value,

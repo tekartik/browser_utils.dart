@@ -1,4 +1,4 @@
-@TestOn("browser")
+@TestOn('browser')
 library tekartik_browser_utils.test.css_utils_test;
 
 import 'dart:html';
@@ -15,7 +15,7 @@ void main() {
           document.head
               .querySelector('link[href="data/simple_stylesheet.css"]'),
           isNull);
-      await loadStylesheet("data/simple_stylesheet.css");
+      await loadStylesheet('data/simple_stylesheet.css');
       expect(
           document.head
               .querySelector('link[href="data/simple_stylesheet.css"]'),
@@ -23,7 +23,7 @@ void main() {
     });
 
     test('stylesheetLoader', () async {
-      final StylesheetLoader loader = StylesheetLoader(
+      final loader = StylesheetLoader(
           url.join('data', 'stylesheet_loader_stylesheet.css'));
       expect(
           document.head.querySelector(
@@ -51,7 +51,7 @@ void main() {
     });
 
     test('stylesheetLoader fail', () async {
-      final StylesheetLoader loader = StylesheetLoader(
+      final loader = StylesheetLoader(
           url.join('data', 'DUMMY_stylesheet_loader_stylesheet.css'));
 
       try {

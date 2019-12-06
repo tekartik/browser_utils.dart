@@ -19,17 +19,17 @@ class BrowserLocationInfo implements LocationInfo {
   @override
   String toString() => toMap().toString();
 
-  Map toMap() {
-    Map map = {"host": host, "path": path};
+  Map<String, dynamic> toMap() {
+    final map = <String, dynamic>{'host': host, 'path': path};
     if (arguments.isNotEmpty) {
       map['arguments'] = arguments;
     }
     return map;
   }
 
-  Map toDebugMap() {
-    Map map = toMap();
-    Map loc = {};
+  Map<String, dynamic> toDebugMap() {
+    final map = toMap();
+    final loc = <String, dynamic>{};
     loc['protocol'] = location.protocol;
     loc['pathname'] = location.pathname;
     loc['search'] = location.search;

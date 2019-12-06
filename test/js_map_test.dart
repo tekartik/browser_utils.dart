@@ -1,4 +1,4 @@
-@TestOn("browser")
+@TestOn('browser')
 library tekartik_browser_utils.test.js_map_test;
 
 import 'package:dev_test/test.dart';
@@ -11,7 +11,7 @@ void main() {
   /*
   group('js_map', () {
     test('simple', () {
-      var jsObject = jsify({"test": "value"});
+      var jsObject = jsify({'test': 'value'});
       JsMap jsMap = new JsMap(jsObject);
       print(jsMap);
     });

@@ -1,4 +1,4 @@
-@TestOn("!vm")
+@TestOn('!vm')
 @JS()
 library js_utils_browser_test.dart;
 
@@ -19,10 +19,10 @@ void main() {
 
   group('Import', () {
     test('css', () async {
-      await loadStylesheet("data/simple_stylesheet.css");
+      await loadStylesheet('data/simple_stylesheet.css');
     });
     test('js', () async {
-      await loadJavascriptScript("data/simple_script.js");
+      await loadJavascriptScript('data/simple_script.js');
     });
   });
 }

@@ -1,4 +1,4 @@
-@TestOn("browser")
+@TestOn('browser')
 library tekartik_browser_utils.test.location_utils_test;
 
 // Copyright (c) 2016, Alexandre Roux Tekartik. All rights reserved. Use of this source code
@@ -14,7 +14,7 @@ import 'package:tekartik_browser_utils/location_info_utils.dart';
 void main() {
   group('location', () {
     test('fromLocation', () {
-      expect(locationInfo.path, contains("location_utils_test.html"));
+      expect(locationInfo.path, contains('location_utils_test.html'));
     });
   });
 }
