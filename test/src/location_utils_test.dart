@@ -1,4 +1,4 @@
-@TestOn("browser")
+@TestOn('browser')
 // Copyright (c) 2016, Alexandre Roux Tekartik. All rights reserved. Use of this source code
 
 // is governed by a BSD-style license that can be found in the LICENSE file.
@@ -10,10 +10,10 @@ import 'package:tekartik_browser_utils/src/location_info_utils.dart';
 void main() {
   group('location', () {
     test('browser', () {
-      BrowserLocationInfo _locationInfo = locationInfo as BrowserLocationInfo;
+      final _locationInfo = locationInfo as BrowserLocationInfo;
       print(_locationInfo.toDebugMap());
-//      expect(locationInfo.path, contains("location_utils_test.html"));
-      //print("_locationInfo.location.protocol);
+//      expect(locationInfo.path, contains('location_utils_test.html'));
+      //print('_locationInfo.location.protocol);
     });
   });
 }

@@ -6,7 +6,7 @@ import 'dart:html';
 import 'package:tekartik_common_utils/async_utils.dart';
 
 Future loadStylesheet(String src) {
-  Completer completer = Completer();
+  final completer = Completer();
   var link = LinkElement();
   link.type = 'text/css';
   link.onError.listen((e) {
@@ -20,7 +20,7 @@ Future loadStylesheet(String src) {
     completer.complete();
   });
   link.href = src;
-  link.rel = "stylesheet";
+  link.rel = 'stylesheet';
   document.head.children.add(link);
   return completer.future;
 }

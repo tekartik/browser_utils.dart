@@ -18,9 +18,9 @@ abstract class LocationInfo {
 /// Typically the argument is window.location.search
 /// never null
 Map<String, String> locationSearchGetArguments(String search) {
-  Map<String, String> params = {};
+  final params = <String, String>{};
   if (search != null) {
-    int questionMarkIndex = search.indexOf('?');
+    final questionMarkIndex = search.indexOf('?');
     if (questionMarkIndex != -1) {
       search = search.substring(questionMarkIndex + 1);
     }

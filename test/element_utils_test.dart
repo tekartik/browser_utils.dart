@@ -1,4 +1,4 @@
-@TestOn("browser")
+@TestOn('browser')
 library tekartik_browser_utils.test.element_utils_test;
 
 import 'dart:html';
@@ -22,23 +22,23 @@ void main() {
 
     test('find', () {
       Element element = DivElement()
-        ..id = "test"
-        ..classes = ["test"];
-      expect(findFirstAncestorWithClass(element, "test", true), element);
-      expect(findFirstAncestorWithId(element, "test", true), element);
-      expect(findFirstAncestorWithClass(element, "test"), isNull);
-      expect(findFirstAncestorWithId(element, "test"), isNull);
+        ..id = 'test'
+        ..classes = ['test'];
+      expect(findFirstAncestorWithClass(element, 'test', true), element);
+      expect(findFirstAncestorWithId(element, 'test', true), element);
+      expect(findFirstAncestorWithClass(element, 'test'), isNull);
+      expect(findFirstAncestorWithId(element, 'test'), isNull);
 
       Element child = DivElement()
-        ..id = "child"
-        ..classes = ["child"];
+        ..id = 'child'
+        ..classes = ['child'];
       element.append(child);
-      expect(findFirstAncestorWithClass(child, "child", true), child);
-      expect(findFirstAncestorWithId(child, "child", true), child);
-      expect(findFirstAncestorWithClass(child, "test", true), element);
-      expect(findFirstAncestorWithId(child, "test", true), element);
-      expect(findFirstAncestorWithClass(child, "test"), element);
-      expect(findFirstAncestorWithId(child, "test"), element);
+      expect(findFirstAncestorWithClass(child, 'child', true), child);
+      expect(findFirstAncestorWithId(child, 'child', true), child);
+      expect(findFirstAncestorWithClass(child, 'test', true), element);
+      expect(findFirstAncestorWithId(child, 'test', true), element);
+      expect(findFirstAncestorWithClass(child, 'test'), element);
+      expect(findFirstAncestorWithId(child, 'test'), element);
     });
   });
 }

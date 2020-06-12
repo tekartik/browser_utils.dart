@@ -13,7 +13,7 @@ export 'src/js_utils/js_interop.dart';
 export 'src/js_utils/js_utils.dart' show jsRuntimeType;
 
 Future debugLoadJavascriptScript(String src) {
-  Completer completer = Completer();
+  final completer = Completer();
   var script = ScriptElement();
   print('dbg_loading: ${src}');
   script.type = 'text/javascript';
@@ -58,7 +58,7 @@ class JavascriptScriptLoader extends AsyncOnceRunner {
 }
 
 Future loadJavascriptScript(String src) {
-  Completer completer = Completer();
+  final completer = Completer();
   var script = ScriptElement();
   script.type = 'text/javascript';
   script.onError.listen((e) {
