@@ -32,3 +32,4 @@ pubspec.lock
 
 # Local env files
 .local/
+/.dart/
