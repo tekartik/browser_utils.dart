@@ -2,11 +2,12 @@ import 'package:dev_test/package.dart';
 import 'package:process_run/shell.dart';
 
 Future main() async {
-  var shell = Shell(environment: {
-    // Prevent firefox from popping up
-    'MOZ_HEADLESS': '1'
-  });
+  var shell = Shell(
+      environment:
+          // Prevent firefox from popping up
+          Map.from(userEnvironment)..['MOZ_HEADLESS'] = '1');
 
+  // Common ci test
   await packageRunCi('.');
   await shell.run('''
   # Firefox test
