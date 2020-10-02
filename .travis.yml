@@ -1,6 +1,9 @@
 language: dart
 sudo: required
-dist: trusty
+dist: xenial
+# Solving firefox issue
+services:
+  - xvfb
 dart:
   - stable
   - beta
