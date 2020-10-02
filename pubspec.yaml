@@ -3,6 +3,8 @@ version: 0.6.12
 description: Browser utils
 author: Alexandre Roux <alex@tekartik.com>
 homepage: https://github.com/tekartik/browser_utils.dart
+publish_to: none
+
 environment:
   sdk: '>=2.8.0 <3.0.0'
 dependencies:
