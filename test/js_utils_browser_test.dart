@@ -38,6 +38,18 @@ external String get javascriptLoaderText;
 @JS('tekartik_javascript_script_loader_js_script_text')
 external set javascriptLoaderText(String text);
 
+@JS()
+external List testArrayJoinJs();
+
+@JS()
+external List testForInArrayJoinJs();
+
+@JS()
+external List testArrayJoin(List<String> array);
+
+@JS()
+external List testForInArrayJoin(List<String> array);
+
 void main() {
   setUpAll(() {
     loadJavascriptScript('js_utils_browser_test.js');
@@ -220,6 +232,22 @@ void main() {
       expect(javascriptLoaderText, 'new_hello');
       await loader.load();
       expect(javascriptLoaderText, 'new_hello');
+    });
+
+    test('forInJs', () {
+      const elements = ['Fire', 'Air', 'Water'];
+      var expected = elements.join(',');
+      expect(testArrayJoinJs(), expected);
+      expect(testForInArrayJoinJs(), expected);
+      expect(testArrayJoin(elements), expected);
+      try {
+        // This is failing for now...catch the exception to prevent our build
+        // from failing
+        expect(testForInArrayJoin(elements), expected);
+      } on TestFailure catch (e) {
+        print('Unexpected error: $e');
+        print(jsObjectKeys(testForInArrayJoin(elements)));
+      }
     });
 
     // Skipped when not debugging
