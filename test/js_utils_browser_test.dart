@@ -29,7 +29,7 @@ class WithIntValue {
 
   external set value(int value);
 
-  external factory WithIntValue({int value});
+  external factory WithIntValue({int? value});
 }
 
 @JS('tekartik_javascript_script_loader_js_script_text')
@@ -65,16 +65,16 @@ void main() {
     });
 
     test('type', () {
-      var jsObject = jsify({'test': 'value'});
+      var jsObject = jsify({'test': 'value'}) as Object;
       expect(jsRuntimeType(jsObject), 'Object');
 
-      var jsArray = jsify([]);
+      var jsArray = jsify([]) as Object;
       expect(jsRuntimeType(jsArray), 'Array');
     });
 
     test('jsObjectAsMap', () {
       expect(jsObjectAsMap(null), null);
-      var jsObject = newObject();
+      var jsObject = newObject() as Object;
       expect(jsObjectAsMap(jsObject), {});
       setProperty(jsObject, 'value', 1);
       expect(jsObjectAsMap(jsObject), {'value': 1});
@@ -87,13 +87,13 @@ void main() {
 
     test('jsObjectAsMapRecursive', () {
       var testDart = {'int': 1, 'string': 'text', 'null': null};
-      var jsObject = jsify(testDart);
+      var jsObject = jsify(testDart) as Object;
       expect(jsObjectAsMap(jsObject), testDart);
 
       testDart = {};
       testDart['test'] = testDart;
       expect(testDart.toString(), '{test: {...}}');
-      jsObject = jsify({});
+      jsObject = jsify({}) as Object;
       setProperty(jsObject, 'test', jsObject);
       //TODO
       //expect(jsObjectAsMap(jsObject).toString(), '{test: {...}}');
@@ -106,14 +106,14 @@ void main() {
       var testDart = [1, 'text', null];
       expect(testDart.toString(), '[1, text, null]');
       var jsArray = jsify(testDart);
-      expect(jsArrayAsList(jsArray as List), testDart);
+      expect(jsArrayAsList(jsArray as List?), testDart);
 
       testDart = [];
       testDart.add(testDart);
       expect(testDart.toString(), '[[...]]');
       jsArray = jsify([]);
       jsArray.add(jsArray);
-      expect(jsArrayAsList(jsArray as List).toString(), '[[...]]');
+      expect(jsArrayAsList(jsArray as List?).toString(), '[[...]]');
     });
 
     test('asCollection', () {

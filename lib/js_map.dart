@@ -14,18 +14,21 @@ import 'package:js/js_util.dart';
 external List<String> _getKeys(jsObject);
 
 class JsMap<V> extends MapBase<String, dynamic> {
-  final _jsObject;
+  final Object _jsObject;
 
   JsMap(this._jsObject);
 
   @override
-  V operator [](Object key) {
+  V? operator [](Object? key) {
     dynamic prop = getProperty(_jsObject, key.toString());
+    if (prop != null) {
+      // if the map is not generic
+      if (V == dynamic) {
+        prop = JsMap(prop as Object);
+      }
+    }
 
-    // if the map is not generic
-    if (V == dynamic) prop = JsMap(prop);
-
-    return prop as V;
+    return prop as V?;
   }
 
   @override
@@ -33,7 +36,7 @@ class JsMap<V> extends MapBase<String, dynamic> {
       setProperty(_jsObject, key.toString(), value);
 
   @override
-  dynamic remove(Object key) {
+  dynamic remove(Object? key) {
     throw 'Not implemented yet for JsMap, sorry';
   }
 
@@ -41,7 +44,7 @@ class JsMap<V> extends MapBase<String, dynamic> {
   Iterable<String> get keys => _getKeys(_jsObject);
 
   @override
-  bool containsKey(Object key) => hasProperty(_jsObject, key);
+  bool containsKey(Object? key) => hasProperty(_jsObject, key!);
 
   @override
   void clear() {

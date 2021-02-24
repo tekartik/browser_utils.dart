@@ -7,9 +7,9 @@ import 'package:tekartik_common_utils/out_buffer.dart';
 import 'package:tekartik_common_utils/json_utils.dart';
 
 OutBuffer _outBuffer = OutBuffer(100);
-Element _output = document.getElementById('output');
-void write([Object message]) =>
-    _output.text = (_outBuffer..add('$message')).toString();
+Element? _output = document.getElementById('output');
+void write([Object? message]) =>
+    _output!.text = (_outBuffer..add('$message')).toString();
 
 Future main() async {
   final info = locationInfo as BrowserLocationInfo;

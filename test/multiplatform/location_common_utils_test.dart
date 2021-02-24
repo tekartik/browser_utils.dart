@@ -46,7 +46,7 @@ void main() {
       //Map map = Uri.splitQueryString(search); // this fails as it does not handle the ?
       final map = locationSearchGetArguments(search);
       //print(map['state']);
-      expect(map['state'].startsWith('{"ids":["0B4x'), isTrue);
+      expect(map['state']!.startsWith('{"ids":["0B4x'), isTrue);
       //String uri = 'http://milomedy.tekartik.com/?state=%7B%22ids%22:%5B%220B4xfXXDGtr7XbGZvaGZadlAtb1U%22%5D,%22action%22:%22open%22,%22userId%22:%22106049382465267012344%22%7D';
       //Uri.parse(uri)
     });

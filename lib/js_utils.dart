@@ -17,7 +17,7 @@ Future debugLoadJavascriptScript(String src) {
     // onError, onDone are never called
     print('dbg_onError($e): ${src}');
     completer.completeError(Exception('script $src not loaded'));
-  }, onError: (e, StackTrace st) {
+  }, onError: (Object e, StackTrace st) {
     // never called
     print('onErrorError: ${src}');
     completer.completeError(e, st);
@@ -30,7 +30,7 @@ Future debugLoadJavascriptScript(String src) {
     // onError, onDone are never called
     print('dbg_onLoad: ${src}');
     completer.complete();
-  }, onError: (e, StackTrace st) {
+  }, onError: (Object e, StackTrace st) {
     // never called
     print('onError: ${src}');
     completer.completeError(e, st);
@@ -39,7 +39,7 @@ Future debugLoadJavascriptScript(String src) {
     print('onDone: ${src}');
   });
   script.src = src;
-  document.head.children.add(script);
+  document.head!.children.add(script);
   return completer.future;
 }
 
@@ -67,7 +67,7 @@ Future loadJavascriptScript(String src) {
     completer.complete();
   });
   script.src = src;
-  document.head.children.add(script);
+  document.head!.children.add(script);
   return completer.future;
 }
 
