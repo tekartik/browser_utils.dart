@@ -10,34 +10,35 @@ export 'package:tekartik_js_utils/js_utils.dart';
 Future debugLoadJavascriptScript(String src) {
   final completer = Completer();
   var script = ScriptElement();
-  print('dbg_loading: ${src}');
+  print('dbg_loading: $src');
   script.type = 'text/javascript';
   script.onError.listen((e) {
     // This is actually the only callback called upon success
     // onError, onDone are never called
-    print('dbg_onError($e): ${src}');
+    print('dbg_onError($e): $src');
     completer.completeError(Exception('script $src not loaded'));
   }, onError: (Object e, StackTrace st) {
     // never called
-    print('onErrorError: ${src}');
+    print('onErrorError: $src');
     completer.completeError(e, st);
   }, onDone: () {
     // never called
-    print('onErrorDone: ${src}');
+    print('onErrorDone: $src');
   });
   script.onLoad.listen((_) {
     // This is actually the only callback called upon success
     // onError, onDone are never called
-    print('dbg_onLoad: ${src}');
+    print('dbg_onLoad: $src');
     completer.complete();
   }, onError: (Object e, StackTrace st) {
     // never called
-    print('onError: ${src}');
+    print('onError: $src');
     completer.completeError(e, st);
   }, onDone: () {
     // never called
-    print('onDone: ${src}');
+    print('onDone: $src');
   });
+  // ignore: unsafe_html
   script.src = src;
   document.head!.children.add(script);
   return completer.future;
@@ -66,6 +67,7 @@ Future loadJavascriptScript(String src) {
     // onError, onDone are never called
     completer.complete();
   });
+  // ignore: unsafe_html
   script.src = src;
   document.head!.children.add(script);
   return completer.future;
