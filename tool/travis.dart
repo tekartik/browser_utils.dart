@@ -8,7 +8,7 @@ Future main() async {
           Map.from(userEnvironment)..['MOZ_HEADLESS'] = '1');
 
   // Common ci test
-  await packageRunCi('.');
+  await packageRunCi('.', noAnalyze: true, noTest: true);
   await shell.run('''
   # Firefox test
   dart test -p firefox
