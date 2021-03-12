@@ -14,7 +14,7 @@ class BrowserLocationInfo implements LocationInfo {
   String get host => location.host;
 
   @override
-  String get path => location.pathname;
+  String? get path => location.pathname;
 
   @override
   String toString() => toMap().toString();

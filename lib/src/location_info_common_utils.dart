@@ -2,22 +2,22 @@ class MockLocationInfo implements LocationInfo {
   @override
   Map<String, String> arguments = {};
   @override
-  String host;
+  String? host;
   @override
-  String path;
+  String? path;
 }
 
 abstract class LocationInfo {
-  String get host;
+  String? get host;
 
-  String get path;
+  String? get path;
 
   Map<String, String> get arguments;
 }
 
 /// Typically the argument is window.location.search
 /// never null
-Map<String, String> locationSearchGetArguments(String search) {
+Map<String, String> locationSearchGetArguments(String? search) {
   final params = <String, String>{};
   if (search != null) {
     final questionMarkIndex = search.indexOf('?');

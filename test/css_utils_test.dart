@@ -12,12 +12,12 @@ void main() {
     test('loadCss', () async {
       // <link type="text/css" href="data/simple_stylesheet.css" rel="stylesheet">
       expect(
-          document.head
+          document.head!
               .querySelector('link[href="data/simple_stylesheet.css"]'),
           isNull);
       await loadStylesheet('data/simple_stylesheet.css');
       expect(
-          document.head
+          document.head!
               .querySelector('link[href="data/simple_stylesheet.css"]'),
           isNotNull);
     });
@@ -26,26 +26,26 @@ void main() {
       final loader = StylesheetLoader(
           url.join('data', 'stylesheet_loader_stylesheet.css'));
       expect(
-          document.head.querySelector(
+          document.head!.querySelector(
               'link[href="data/stylesheet_loader_stylesheet.css"]'),
           isNull);
       expect(loader.loaded, isFalse);
       await loader.load();
       expect(loader.loaded, isTrue);
       expect(
-          document.head.querySelector(
+          document.head!.querySelector(
               'link[href="data/stylesheet_loader_stylesheet.css"]'),
           isNotNull);
-      document.head
-          .querySelector('link[href="data/stylesheet_loader_stylesheet.css"]')
+      document.head!
+          .querySelector('link[href="data/stylesheet_loader_stylesheet.css"]')!
           .remove();
       expect(
-          document.head.querySelector(
+          document.head!.querySelector(
               'link[href="data/stylesheet_loader_stylesheet.css"]'),
           isNull);
       await loader.load();
       expect(
-          document.head.querySelector(
+          document.head!.querySelector(
               'link[href="data/stylesheet_loader_stylesheet.css"]'),
           isNull);
     });

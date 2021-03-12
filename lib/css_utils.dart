@@ -21,7 +21,7 @@ Future loadStylesheet(String src) {
   });
   link.href = src;
   link.rel = 'stylesheet';
-  document.head.children.add(link);
+  document.head!.children.add(link);
   return completer.future;
 }
 
