@@ -1,7 +1,6 @@
 name: tekartik_browser_utils
 version: 0.7.0
 description: Browser utils
-author: Alexandre Roux <alex@tekartik.com>
 homepage: https://github.com/tekartik/browser_utils.dart
 publish_to: none
 

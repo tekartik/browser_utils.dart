@@ -2,6 +2,8 @@
 @JS()
 library tekartik_browser_utils.test.js_utils_browser_test;
 
+import 'dart:js';
+
 import 'package:dev_test/test.dart';
 import 'package:js/js.dart';
 import 'package:js/js_util.dart';
@@ -111,7 +113,8 @@ void main() {
       testDart = [];
       testDart.add(testDart);
       expect(testDart.toString(), '[[...]]');
-      jsArray = jsify([]);
+      jsArray = jsify([]) as JsObject;
+      // ignore: avoid_dynamic_calls
       jsArray.add(jsArray);
       expect(jsArrayAsList(jsArray as List?).toString(), '[[...]]');
     });
