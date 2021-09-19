@@ -8,7 +8,7 @@ class ArgumentsOption {
 
   /// True if contains, false if "no-xxx" is contains, null otherwier
   bool? has() {
-    if (locationInfo!.arguments.containsKey('$name')) {
+    if (locationInfo!.arguments.containsKey(name)) {
       return true;
     }
     if (locationInfo!.arguments.containsKey('no-$name')) {

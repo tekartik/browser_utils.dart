@@ -75,7 +75,7 @@ Future loadJavascriptScript(String src) {
 
 bool get _runningAsJavascript => identical(1, 1.0);
 
-@deprecated
+@Deprecated('user common_utils')
 bool get runningAsJavascript => _runningAsJavascript;
 
 bool get debugRunningAsJavascript => _runningAsJavascript;

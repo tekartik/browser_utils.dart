@@ -1,9 +1,8 @@
 @TestOn('!vm')
 library console_utils_test;
 
-import 'package:tekartik_browser_utils/console_utils.dart';
-
 import 'package:dev_test/test.dart';
+import 'package:tekartik_browser_utils/console_utils.dart';
 
 void main() {
   group('console_utils', () {
