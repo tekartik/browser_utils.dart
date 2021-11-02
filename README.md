@@ -8,7 +8,7 @@ Browser (Js, Css, Html) utilities
 dependencies:
   tekartik_browser_utils:
     git:
-      url: git://github.com/tekartik/browser_utils.dart
+      url: https://github.com/tekartik/browser_utils.dart
       ref: dart2
     version: '>=0.6.10'
 ```
