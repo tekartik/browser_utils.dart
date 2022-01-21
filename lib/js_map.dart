@@ -33,7 +33,7 @@ class JsMap<V> extends MapBase<String, dynamic> {
 
   @override
   operator []=(String key, dynamic value) =>
-      setProperty(_jsObject, key.toString(), value);
+      setProperty<Object>(_jsObject, key.toString(), value);
 
   @override
   dynamic remove(Object? key) {

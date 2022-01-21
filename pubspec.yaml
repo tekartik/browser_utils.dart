@@ -11,14 +11,14 @@ dependencies:
   js: any
   tekartik_common_utils:
     git:
-      url: git://github.com/tekartik/common_utils.dart
-      ref: null_safety
+      url: https://github.com/tekartik/common_utils.dart
+      ref: dart2_3
     version: '>=0.9.3+2'
   tekartik_js_utils:
     git:
-      url: git://github.com/tekartik/js_utils.dart
+      url: https://github.com/tekartik/js_utils.dart
       path: js_utils
-      ref: null_safety
+      ref: dart2_3
     version: '>=0.1.1'
   stack_trace:
 dev_dependencies:
@@ -27,8 +27,8 @@ dev_dependencies:
   test: '>=1.2.0'
   chrome_travis:
     git:
-      url: git://github.com/tekartik/chrome_travis.dart
-      ref: null_safety
+      url: https://github.com/tekartik/chrome_travis.dart
+      ref: dart2_3
     version: '>=0.1.0'
   build_runner: '>=1.7.0'
   build_test: '>=0.10.8'
