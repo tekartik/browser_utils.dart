@@ -2,13 +2,11 @@
 @JS()
 library tekartik_browser_utils.test.js_utils_browser_test;
 
-import 'dart:js';
-
-import 'package:dev_test/test.dart';
 import 'package:js/js.dart';
 import 'package:js/js_util.dart';
 import 'package:path/path.dart' hide context;
 import 'package:tekartik_browser_utils/js_utils.dart';
+import 'package:test/test.dart';
 
 import 'data/js_binding.dart';
 
@@ -113,10 +111,10 @@ void main() {
       testDart = [];
       testDart.add(testDart);
       expect(testDart.toString(), '[[...]]');
-      jsArray = jsify([]) as JsObject;
+      jsArray = jsify([]) as List;
       // ignore: avoid_dynamic_calls
       jsArray.add(jsArray);
-      expect(jsArrayAsList(jsArray as List?).toString(), '[[...]]');
+      expect(jsArrayAsList(jsArray).toString(), '[[...]]');
     });
 
     test('asCollection', () {
