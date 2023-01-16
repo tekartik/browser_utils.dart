@@ -5,8 +5,9 @@ homepage: https://github.com/tekartik/browser_utils.dart
 publish_to: none
 
 environment:
-  sdk: '>=2.12.0-0 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 dependencies:
+  path:
   synchronized: any
   js: any
   tekartik_common_utils:

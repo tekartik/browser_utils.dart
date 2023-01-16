@@ -6,7 +6,7 @@ import 'dart:html';
 import 'package:tekartik_common_utils/async_utils.dart';
 
 Future loadStylesheet(String src) {
-  final completer = Completer();
+  final completer = Completer<void>();
   var link = LinkElement();
   link.type = 'text/css';
   link.onError.listen((e) {

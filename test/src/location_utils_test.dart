@@ -10,8 +10,8 @@ import 'package:tekartik_browser_utils/src/location_info_utils.dart';
 void main() {
   group('location', () {
     test('browser', () {
-      final _locationInfo = locationInfo as BrowserLocationInfo;
-      print(_locationInfo.toDebugMap());
+      final localLocationInfo = locationInfo as BrowserLocationInfo;
+      print(localLocationInfo.toDebugMap());
 //      expect(locationInfo.path, contains('location_utils_test.html'));
       //print('_locationInfo.location.protocol);
     });

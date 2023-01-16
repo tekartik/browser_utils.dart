@@ -57,7 +57,7 @@ void main() {
   group('JsObject', () {
     test('anonymous', () {
       var withIntValue = WithIntValue();
-      expect(jsObjectKeys(withIntValue), []);
+      expect(jsObjectKeys(withIntValue), isEmpty);
       withIntValue.value = 1;
       expect(jsObjectKeys(withIntValue), ['value']);
       expect(withIntValue.value, 1);
@@ -75,12 +75,12 @@ void main() {
     test('jsObjectAsMap', () {
       expect(jsObjectAsMap(null), null);
       var jsObject = newObject() as Object;
-      expect(jsObjectAsMap(jsObject), {});
+      expect(jsObjectAsMap(jsObject), isEmpty);
       setProperty(jsObject, 'value', 1);
       expect(jsObjectAsMap(jsObject), {'value': 1});
 
       var withIntValue = WithIntValue();
-      expect(jsObjectAsMap(withIntValue), {});
+      expect(jsObjectAsMap(withIntValue), isEmpty);
       withIntValue.value = 1;
       expect(jsObjectAsMap(withIntValue), {'value': 1});
     });

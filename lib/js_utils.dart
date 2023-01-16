@@ -8,7 +8,7 @@ import 'package:tekartik_common_utils/async_utils.dart';
 export 'package:tekartik_js_utils/js_utils.dart';
 
 Future debugLoadJavascriptScript(String src) {
-  final completer = Completer();
+  final completer = Completer<void>();
   var script = ScriptElement();
   print('dbg_loading: $src');
   script.type = 'text/javascript';
@@ -54,7 +54,7 @@ class JavascriptScriptLoader extends AsyncOnceRunner {
 }
 
 Future loadJavascriptScript(String src) {
-  final completer = Completer();
+  final completer = Completer<void>();
   var script = ScriptElement();
   script.type = 'text/javascript';
   script.onError.listen((e) {

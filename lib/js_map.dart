@@ -11,7 +11,7 @@ import 'package:js/js.dart';
 import 'package:js/js_util.dart';
 
 @JS('Object.keys')
-external List<String> _getKeys(jsObject);
+external List<String> _getKeys(Object jsObject);
 
 class JsMap<V> extends MapBase<String, dynamic> {
   final Object _jsObject;
@@ -20,11 +20,11 @@ class JsMap<V> extends MapBase<String, dynamic> {
 
   @override
   V? operator [](Object? key) {
-    dynamic prop = getProperty(_jsObject, key.toString());
+    var prop = getProperty<Object?>(_jsObject, key.toString());
     if (prop != null) {
       // if the map is not generic
       if (V == dynamic) {
-        prop = JsMap(prop as Object);
+        prop = JsMap<Object?>(prop);
       }
     }
 
