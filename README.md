@@ -9,7 +9,7 @@ dependencies:
   tekartik_browser_utils:
     git:
       url: https://github.com/tekartik/browser_utils.dart
-      ref: dart2
+      ref: dart2_3
     version: '>=0.6.10'
 ```
 
