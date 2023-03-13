@@ -1,4 +1,4 @@
-import 'package:tekartik_browser_utils/universal_console.dart';
+import 'package:tekartik_browser_utils/universal_print.dart';
 
 Future main() async {
   print('first line');
