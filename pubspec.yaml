@@ -5,7 +5,7 @@ homepage: https://github.com/tekartik/browser_utils.dart
 publish_to: none
 
 environment:
-  sdk: '>=2.18.0 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 dependencies:
   path:
   synchronized: any
@@ -13,13 +13,13 @@ dependencies:
   tekartik_common_utils:
     git:
       url: https://github.com/tekartik/common_utils.dart
-      ref: dart2_3
+      ref: dart3a
     version: '>=0.9.3+2'
   tekartik_js_utils:
     git:
       url: https://github.com/tekartik/js_utils.dart
       path: js_utils
-      ref: dart2_3
+      ref: dart3a
     version: '>=0.1.1'
   stack_trace:
 dev_dependencies:
@@ -29,7 +29,7 @@ dev_dependencies:
   chrome_travis:
     git:
       url: https://github.com/tekartik/chrome_travis.dart
-      ref: dart2_3
+      ref: dart3a
     version: '>=0.1.0'
   build_runner: '>=1.7.0'
   build_test: '>=0.10.8'
