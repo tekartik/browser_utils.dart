@@ -14,7 +14,7 @@ class NullTreeSanitizer implements NodeTreeSanitizer {
 const nullTreeSanitizer = NullTreeSanitizer();
 
 void setDisabled(Element element, bool disabled) {
-  if (disabled == true) {
+  if (disabled) {
     element.attributes['disabled'] = '';
   } else {
     element.attributes.remove('disabled');
@@ -26,7 +26,7 @@ void setEnabled(Element element, bool enabled) {
 }
 
 void setHidden(Element element, bool hidden) {
-  if (hidden == true) {
+  if (hidden) {
     element.attributes['hidden'] = '';
   } else {
     element.attributes.remove('hidden');
