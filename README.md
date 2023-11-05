@@ -10,7 +10,7 @@ dependencies:
     git:
       url: https://github.com/tekartik/browser_utils.dart
       ref: dart3a
-    version: '>=0.6.10'
+    version: '>=0.7.3'
 ```
 
 ## Sample html
