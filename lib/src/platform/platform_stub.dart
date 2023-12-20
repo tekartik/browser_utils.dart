@@ -13,3 +13,7 @@ void webSessionStorageSet(String key, String value) =>
 
 void webSessionStorageRemove(String key) =>
     throw UnsupportedError('webSessionStorageRemove web only');
+
+/// Navigator language.
+String? get webNavigatorLanguage =>
+    throw UnsupportedError('webNavigatorLanguage web only');

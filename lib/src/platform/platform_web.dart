@@ -13,3 +13,6 @@ void exitFullScreen() {
 bool isFullScreen() {
   return document.fullscreenElement != null;
 }
+
+/// Navigator language.
+String? get webNavigatorLanguage => window.navigator.language;
