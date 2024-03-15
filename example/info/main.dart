@@ -6,4 +6,6 @@ Future main() async {
   if (isRunningAsJavascript) {
     print('webNavigatorLanguage: $webNavigatorLanguage');
   }
+  print('kDartIsWeb: $kDartIsWeb');
+  print('isRunningAsJavascript: $isRunningAsJavascript');
 }
