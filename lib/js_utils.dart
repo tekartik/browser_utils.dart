@@ -1,15 +1,15 @@
 library tekartik_browser_utils_js_utils;
 
 import 'dart:async';
-import 'dart:html';
 
 import 'package:tekartik_common_utils/async_utils.dart';
+import 'package:web/web.dart' as web;
 
 export 'package:tekartik_js_utils/js_utils.dart';
 
 Future debugLoadJavascriptScript(String src) {
   final completer = Completer<void>();
-  var script = ScriptElement();
+  var script = web.HTMLScriptElement();
   print('dbg_loading: $src');
   script.type = 'text/javascript';
   script.onError.listen((e) {
@@ -40,7 +40,7 @@ Future debugLoadJavascriptScript(String src) {
   });
   // ignore: unsafe_html
   script.src = src;
-  document.head!.children.add(script);
+  web.window.document.head!.appendChild(script);
   return completer.future;
 }
 
@@ -55,7 +55,7 @@ class JavascriptScriptLoader extends AsyncOnceRunner {
 
 Future loadJavascriptScript(String src) {
   final completer = Completer<void>();
-  var script = ScriptElement();
+  var script = web.HTMLScriptElement();
   script.type = 'text/javascript';
   script.onError.listen((e) {
     // This is actually the only callback called upon success
@@ -69,7 +69,7 @@ Future loadJavascriptScript(String src) {
   });
   // ignore: unsafe_html
   script.src = src;
-  document.head!.children.add(script);
+  web.document.head!.appendChild(script);
   return completer.future;
 }
 

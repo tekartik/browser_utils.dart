@@ -1,20 +1,19 @@
-import 'dart:html';
-
 import 'package:tekartik_browser_utils/src/location_info_common_utils.dart';
+import 'package:web/web.dart' as web;
 
 class BrowserLocationInfo implements LocationInfo {
-  final Location location;
+  final web.Location _location;
   // never null
   @override
   final Map<String, String> arguments;
-  BrowserLocationInfo(this.location)
-      : arguments = locationSearchGetArguments(location.search);
+  BrowserLocationInfo(this._location)
+      : arguments = locationSearchGetArguments(_location.search);
 
   @override
-  String get host => location.host;
+  String get host => _location.host;
 
   @override
-  String? get path => location.pathname;
+  String? get path => _location.pathname;
 
   @override
   String toString() => toMap().toString();
@@ -30,14 +29,14 @@ class BrowserLocationInfo implements LocationInfo {
   Map<String, dynamic> toDebugMap() {
     final map = toMap();
     final loc = <String, dynamic>{};
-    loc['protocol'] = location.protocol;
-    loc['pathname'] = location.pathname;
-    loc['search'] = location.search;
-    loc['href'] = location.href;
-    loc['hostname'] = location.hostname;
-    loc['port'] = location.port;
-    loc['origin'] = location.origin;
-    loc['host'] = location.host;
+    loc['protocol'] = _location.protocol;
+    loc['pathname'] = _location.pathname;
+    loc['search'] = _location.search;
+    loc['href'] = _location.href;
+    loc['hostname'] = _location.hostname;
+    loc['port'] = _location.port;
+    loc['origin'] = _location.origin;
+    loc['host'] = _location.host;
     map['location'] = loc;
     return map;
   }

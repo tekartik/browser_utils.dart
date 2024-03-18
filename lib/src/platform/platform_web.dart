@@ -1,18 +1,27 @@
-import 'dart:html';
+import 'dart:js_interop';
+
+import 'package:web/web.dart' as web;
+
 export 'package:tekartik_browser_utils/src/storage_utils.dart'
     show webSessionStorageGet, webSessionStorageRemove, webSessionStorageSet;
 
+extension on web.Element {
+  external void requestFullScreen();
+  external void exitFullscreen();
+  external JSAny? get fullscreenElement;
+}
+
 void requestFullScreen() {
-  document.documentElement!.requestFullscreen();
+  web.document.documentElement!.requestFullScreen();
 }
 
 void exitFullScreen() {
-  document.exitFullscreen();
+  web.document.documentElement!.exitFullscreen();
 }
 
 bool isFullScreen() {
-  return document.fullscreenElement != null;
+  return web.document.documentElement!.fullscreenElement != null;
 }
 
 /// Navigator language.
-String? get webNavigatorLanguage => window.navigator.language;
+String get webNavigatorLanguage => web.window.navigator.language;

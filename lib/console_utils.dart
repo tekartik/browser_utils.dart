@@ -1,15 +1,17 @@
+import 'dart:js_interop';
+
 import 'package:stack_trace/stack_trace.dart';
-import 'package:tekartik_browser_utils/browser_utils_import.dart';
+import 'package:web/web.dart' as web;
 
 void printError(Object? e, [StackTrace? st]) {
   try {
-    window.console.error(e);
+    web.console.error(e.toString().toJS);
   } catch (_) {
     print(e);
   }
   if (st != null) {
     try {
-      window.console.error(Trace.format(st));
+      web.console.error(Trace.format(st).toJS);
     } catch (_) {
       print(st);
     }

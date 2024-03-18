@@ -1,19 +1,19 @@
-import 'dart:html';
 import 'package:tekartik_common_utils/out_buffer.dart';
+import 'package:web/web.dart' as web;
 
 OutBuffer _outBuffer = OutBuffer(100);
-Element? outElement;
+web.Element? outElement;
 
 var lines = <String>[];
 void _write(Object? msg) {
   print(msg);
   _outBuffer.add('$msg');
   outElement ??= () {
-    var element = querySelector('#output');
+    var element = web.document.querySelector('#output');
     if (element == null) {
       // Create one
-      element = Element.pre()..id = 'output';
-      document.body?.append(element);
+      element = web.HTMLPreElement.pre()..id = 'output';
+      web.document.body?.appendChild(element);
     }
     return element;
   }();
