@@ -9,7 +9,6 @@ environment:
 dependencies:
   path:
   synchronized: any
-  js: any
   web: '>=0.5.0'
   tekartik_common_utils:
     git:
