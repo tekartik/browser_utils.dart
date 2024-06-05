@@ -1,5 +1,7 @@
-//export 'dart:html';
+/// NOT WASM compatible.
+library;
 
+// ignore: depend_on_referenced_packages
 export 'package:js/js.dart';
 export 'package:tekartik_common_utils/common_utils_import.dart';
 

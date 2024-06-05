@@ -1,4 +1,4 @@
-@TestOn('browser')
+@TestOn('browser && !wasm')
 
 library js_utils_browser_test.dart;
 

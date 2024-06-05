@@ -1,4 +1,4 @@
-@TestOn('browser')
+@TestOn('browser && !wasm')
 library tekartik_browser_utils.test.js_map_test;
 
 import 'package:dev_test/test.dart';

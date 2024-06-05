@@ -1,3 +1,6 @@
+/// NOT WASM compatible.
+library;
+
 import 'dart:html';
 
 ///

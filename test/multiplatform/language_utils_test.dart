@@ -9,7 +9,7 @@ import 'package:tekartik_common_utils/env_utils.dart';
 void main() {
   group('language', () {
     test('webNavigatorLanguage', () {
-      if (isRunningAsJavascript) {
+      if (kDartIsWeb) {
         webNavigatorLanguage;
       } else {
         expect(() => webNavigatorLanguage, throwsUnsupportedError);

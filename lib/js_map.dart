@@ -7,7 +7,9 @@ library jsmap;
 
 import 'dart:collection';
 
+// ignore: depend_on_referenced_packages
 import 'package:js/js.dart';
+// ignore: depend_on_referenced_packages
 import 'package:js/js_util.dart';
 
 @JS('Object.keys')
