@@ -6,11 +6,8 @@ library tekartik_browser_utils.test.js_utils_browser_test;
 import 'package:js/js.dart';
 // ignore: depend_on_referenced_packages
 import 'package:js/js_util.dart';
-import 'package:path/path.dart' hide context;
-import 'package:tekartik_browser_utils/js_utils.dart';
+import 'package:tekartik_js_utils/js_utils.dart';
 import 'package:test/test.dart';
-
-import 'data/js_binding.dart';
 
 //import 'dart:html';
 
@@ -18,9 +15,9 @@ import 'data/js_binding.dart';
 class Car {
   external Car();
 
-  external int drive(Object distance);
+  external int drive(num distance);
 
-  external int crash(Object distance);
+  external int crash(num distance);
 //external int drive(String distanceText);
 }
 
@@ -34,28 +31,7 @@ class WithIntValue {
   external factory WithIntValue({int? value});
 }
 
-@JS('tekartik_javascript_script_loader_js_script_text')
-external String get javascriptLoaderText;
-
-@JS('tekartik_javascript_script_loader_js_script_text')
-external set javascriptLoaderText(String text);
-
-@JS()
-external List testArrayJoinJs();
-
-@JS()
-external List testForInArrayJoinJs();
-
-@JS()
-external List testArrayJoin(List<String> array);
-
-@JS()
-external List testForInArrayJoin(List<String> array);
-
 void main() {
-  setUpAll(() {
-    loadJavascriptScript('js_utils_browser_test.js');
-  });
   group('JsObject', () {
     test('anonymous', () {
       var withIntValue = WithIntValue();
@@ -206,71 +182,5 @@ void main() {
           contains('browser'));
     });
     */
-
-    test('loadJs', () async {
-      expect(tekartikSimpleScriptText, null);
-      await loadJavascriptScript('data/simple_script.js');
-      //await loadJavascriptScript('https://apis.google.com/js/client.js');
-      expect(tekartikSimpleScriptText, 'hello');
-
-      var failed = false;
-      try {
-        await loadJavascriptScript('data/NOT_EXISTS.js');
-      } catch (e) {
-        failed = true;
-        //print(e);
-      }
-      expect(failed, isTrue, reason: 'script does not exits');
-    });
-
-    test('JavascriptScriptLoader', () async {
-      final loader = JavascriptScriptLoader(
-          url.join('data', 'javascript_script_loader_js_script.js'));
-      expect(loader.loaded, isFalse);
-      expect(javascriptLoaderText, isNull);
-      await loader.load();
-      expect(javascriptLoaderText, 'hello');
-      expect(loader.loaded, isTrue);
-      javascriptLoaderText = 'new_hello';
-      expect(javascriptLoaderText, 'new_hello');
-      await loader.load();
-      expect(javascriptLoaderText, 'new_hello');
-    });
-
-    test('forInJs', () {
-      const elements = ['Fire', 'Air', 'Water'];
-      var expected = elements.join(',');
-      expect(testArrayJoinJs(), expected);
-      expect(testForInArrayJoinJs(), expected);
-      expect(testArrayJoin(elements), expected);
-      try {
-        // This is failing for now...catch the exception to prevent our build
-        // from failing
-        expect(testForInArrayJoin(elements), expected);
-      } on TestFailure catch (e) {
-        print('Unexpected error: $e');
-        print(jsObjectKeys(testForInArrayJoin(elements)));
-      }
-    });
-
-    // Skipped when not debugging
-    test('debugLoadJs', () async {
-      expect(tekartikDebugLoadJsScriptText, null);
-      await debugLoadJavascriptScript('data/debug_load_js_script.js');
-      expect(tekartikDebugLoadJsScriptText, 'hello');
-      await debugLoadJavascriptScript('data/debug_load_js_script.js');
-    }, skip: true);
-
-    // Skipped when not debugging
-    test('debugLoadBadJs', () async {
-      var failed = false;
-      try {
-        await debugLoadJavascriptScript('data/NOT_EXISTS.js');
-      } catch (e) {
-        failed = true;
-        print(e);
-      }
-      expect(failed, isTrue, reason: 'script does not exits');
-    }, skip: true);
   });
 }
