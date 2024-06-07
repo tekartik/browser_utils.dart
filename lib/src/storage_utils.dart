@@ -11,3 +11,13 @@ void webSessionStorageSet(String key, String value) {
 void webSessionStorageRemove(String key) {
   web.window.sessionStorage.removeItem(key);
 }
+
+void webLocalStorageSet(String key, String value) =>
+    web.window.localStorage[key] = value;
+
+String? webLocalStorageGet(String key) => web.window.localStorage[key];
+
+/// Delete an env var
+void webLocalStorageRemove(String key) {
+  web.window.localStorage.removeItem(key);
+}

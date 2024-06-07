@@ -14,6 +14,15 @@ void webSessionStorageSet(String key, String value) =>
 void webSessionStorageRemove(String key) =>
     throw UnsupportedError('webSessionStorageRemove web only');
 
+String? webLocalStorageGet(String key) =>
+    throw UnsupportedError('webLocalStorageGet web only');
+
+void webLocalStorageSet(String key, String value) =>
+    throw UnsupportedError('webLocalStorageSet web only');
+
+void webLocalStorageRemove(String key) =>
+    throw UnsupportedError('webLocalStorageRemove web only');
+
 /// Navigator language.
 String get webNavigatorLanguage =>
     throw UnsupportedError('webNavigatorLanguage web only');

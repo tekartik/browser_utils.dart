@@ -3,7 +3,13 @@ import 'dart:js_interop';
 import 'package:web/web.dart' as web;
 
 export 'package:tekartik_browser_utils/src/storage_utils.dart'
-    show webSessionStorageGet, webSessionStorageRemove, webSessionStorageSet;
+    show
+        webSessionStorageGet,
+        webSessionStorageRemove,
+        webSessionStorageSet,
+        webLocalStorageGet,
+        webLocalStorageRemove,
+        webLocalStorageSet;
 
 extension on web.Element {
   external void requestFullScreen();
