@@ -28,10 +28,10 @@ dependencies:
       ref: dart3a
     version: '>=0.1.0'
   stack_trace:
+  js: any
 dev_dependencies:
-  js:
   process_run: '>=0.10.0+1'
-  dev_test: '>=0.15.0+1'
+  dev_build: '>=0.15.0+1'
   test: '>=1.2.0'
   build_runner: '>=1.7.0'
   build_test: '>=0.10.8'

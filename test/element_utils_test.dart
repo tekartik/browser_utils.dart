@@ -3,8 +3,8 @@ library tekartik_browser_utils.test.element_utils_test;
 
 import 'dart:html';
 
-import 'package:dev_test/test.dart';
 import 'package:tekartik_browser_utils/element_utils.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('element_utils', () {

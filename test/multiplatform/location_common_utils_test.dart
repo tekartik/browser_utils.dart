@@ -2,8 +2,8 @@
 
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
-import 'package:dev_test/test.dart';
 import 'package:tekartik_browser_utils/src/location_info_common_utils.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('location', () {

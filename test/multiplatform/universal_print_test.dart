@@ -1,5 +1,5 @@
-import 'package:dev_test/test.dart';
 import 'package:tekartik_browser_utils/universal_print.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('universalPrint', () {

@@ -1,9 +1,9 @@
 @TestOn('browser')
 library tekartik_browser_utils.test.css_utils_test;
 
-import 'package:dev_test/test.dart';
 import 'package:path/path.dart';
 import 'package:tekartik_browser_utils/css_utils.dart';
+import 'package:test/test.dart';
 import 'package:web/web.dart' as web;
 
 void main() {

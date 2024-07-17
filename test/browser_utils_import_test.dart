@@ -2,8 +2,8 @@
 
 library js_utils_browser_test.dart;
 
-import 'package:dev_test/test.dart';
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
+import 'package:test/test.dart';
 
 // make we need no other import
 void main() {
