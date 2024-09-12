@@ -1,4 +1,4 @@
-import 'package:tekartik_browser_utils/browser_utils_import.dart';
+import 'package:tekartik_browser_utils/css_utils.dart';
 import 'package:tekartik_browser_utils/universal_print.dart';
 
 Future main() async {

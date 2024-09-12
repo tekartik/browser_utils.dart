@@ -1,4 +1,5 @@
 /// NOT WASM compatible.
+@Deprecated('Do not use')
 library;
 
 // ignore: depend_on_referenced_packages

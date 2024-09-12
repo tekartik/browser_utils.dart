@@ -3,6 +3,7 @@
 //    https://github.com/dart-lang/sdk/issues/28194#issuecomment-269051789
 
 @JS()
+@Deprecated('Do not use')
 library jsmap;
 
 import 'dart:collection';

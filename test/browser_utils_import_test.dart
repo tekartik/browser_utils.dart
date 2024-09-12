@@ -2,6 +2,7 @@
 
 library js_utils_browser_test.dart;
 
+// ignore: deprecated_member_use_from_same_package
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
 import 'package:test/test.dart';
 
