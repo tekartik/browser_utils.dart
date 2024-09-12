@@ -26,3 +26,15 @@ void webLocalStorageRemove(String key) =>
 /// Navigator language.
 String get webNavigatorLanguage =>
     throw UnsupportedError('webNavigatorLanguage web only');
+
+void webOpenInNewTab(Uri uri) {
+  throw UnsupportedError('webOpenInNewTab web only');
+}
+
+void webOpenInNewWindow(Uri uri, {int? width, int? height}) {
+  throw UnsupportedError('webOpenInNewWindow web only');
+}
+
+void webOpenInSameTab(Uri uri) {
+  throw UnsupportedError('webOpenInSameTab web only');
+}
