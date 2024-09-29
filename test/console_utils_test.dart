@@ -1,5 +1,5 @@
 @TestOn('!vm')
-library console_utils_test;
+library;
 
 import 'package:tekartik_browser_utils/console_utils.dart';
 import 'package:test/test.dart';

@@ -1,6 +1,6 @@
 @TestOn('browser && !wasm')
 @JS()
-library tekartik_browser_utils.test.js_utils_browser_test;
+library;
 
 // ignore: depend_on_referenced_packages
 import 'package:js/js.dart';

@@ -1,5 +1,5 @@
 @TestOn('browser')
-library tekartik_browser_utils.test.css_utils_test;
+library;
 
 import 'package:path/path.dart';
 import 'package:tekartik_browser_utils/css_utils.dart';

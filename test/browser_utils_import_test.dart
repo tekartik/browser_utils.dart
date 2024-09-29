@@ -1,6 +1,6 @@
 @TestOn('browser && !wasm')
 
-library js_utils_browser_test.dart;
+library;
 
 // ignore: deprecated_member_use_from_same_package
 import 'package:tekartik_browser_utils/browser_utils_import.dart';

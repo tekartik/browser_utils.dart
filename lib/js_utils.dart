@@ -1,4 +1,4 @@
-library tekartik_browser_utils_js_utils;
+library;
 
 export 'js_loader_utils.dart';
 

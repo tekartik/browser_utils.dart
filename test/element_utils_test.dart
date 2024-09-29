@@ -1,5 +1,5 @@
 @TestOn('browser && !wasm')
-library tekartik_browser_utils.test.element_utils_test;
+library;
 
 import 'dart:html';
 

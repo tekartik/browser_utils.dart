@@ -4,7 +4,7 @@
 
 @JS()
 @Deprecated('Do not use')
-library jsmap;
+library;
 
 import 'dart:collection';
 

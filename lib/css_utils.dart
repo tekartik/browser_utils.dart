@@ -1,4 +1,4 @@
-library tekartik_browser_utils_css_utils;
+library;
 
 import 'dart:async';
 import 'dart:js_interop';
