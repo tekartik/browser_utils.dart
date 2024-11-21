@@ -44,3 +44,7 @@ void webOpenInNewWindow(Uri uri, {int? width, int? height}) {
 void webOpenInSameTab(Uri uri) {
   openInSameTab(uri);
 }
+
+void webReload({Uri? uri}) {
+  reload(uri: uri);
+}

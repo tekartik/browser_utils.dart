@@ -38,3 +38,7 @@ void webOpenInNewWindow(Uri uri, {int? width, int? height}) {
 void webOpenInSameTab(Uri uri) {
   throw UnsupportedError('webOpenInSameTab web only');
 }
+
+void webReload({Uri? uri}) {
+  throw UnsupportedError('webReload() web only');
+}

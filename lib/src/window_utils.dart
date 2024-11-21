@@ -13,3 +13,10 @@ void openInNewWindow(Uri uri, {int? width, int? height}) {
 void openInSameTab(Uri uri) {
   web.window.open(uri.toString(), '_self');
 }
+
+void reload({Uri? uri}) {
+  if (uri != null) {
+    web.window.location.replace(uri.toString());
+  }
+  web.window.location.reload();
+}
