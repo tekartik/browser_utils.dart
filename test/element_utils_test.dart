@@ -1,8 +1,10 @@
 @TestOn('browser && !wasm')
 library;
 
+// ignore: deprecated_member_use
 import 'dart:html';
 
+// ignore: deprecated_member_use_from_same_package
 import 'package:tekartik_browser_utils/element_utils.dart';
 import 'package:test/test.dart';
 

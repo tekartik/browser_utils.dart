@@ -1,4 +1,5 @@
 /// NOT WASM compatible.
+@Deprecated('Do not use this library in the web anymore')
 library;
 
 import 'dart:html';
