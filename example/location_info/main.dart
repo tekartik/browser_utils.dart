@@ -10,7 +10,7 @@ OutBuffer _outBuffer = OutBuffer(100);
 web.Element? _output = web.document.getElementById('output');
 
 void write([Object? message]) =>
-    _output!.text = (_outBuffer..add('$message')).toString();
+    _output!.textContent = (_outBuffer..add('$message')).toString();
 
 Future main() async {
   final info = locationInfo as BrowserLocationInfo;

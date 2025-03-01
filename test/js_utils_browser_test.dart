@@ -6,6 +6,7 @@ library;
 import 'package:js/js.dart';
 // ignore: depend_on_referenced_packages, deprecated_member_use
 import 'package:js/js_util.dart';
+// ignore: deprecated_member_use
 import 'package:tekartik_js_utils/js_utils.dart';
 import 'package:test/test.dart';
 

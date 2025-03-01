@@ -17,7 +17,7 @@ void _write(Object? msg) {
     }
     return element;
   }();
-  outElement!.text = _outBuffer.toString();
+  outElement!.textContent = _outBuffer.toString();
 }
 
 void universalPrint(Object? object) {
