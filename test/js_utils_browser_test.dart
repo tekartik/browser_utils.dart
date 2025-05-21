@@ -19,7 +19,7 @@ class Car {
   external int drive(num distance);
 
   external int crash(num distance);
-//external int drive(String distanceText);
+  //external int drive(String distanceText);
 }
 
 @anonymous
@@ -120,11 +120,11 @@ void main() {
       expect(jsObjectAsCollection(jsify(list2), depth: 0), ['..']);
       expect(jsObjectAsCollection(jsify(map2), depth: 1), {
         'map1': {'.': '.'},
-        'list1': ['..']
+        'list1': ['..'],
       });
       expect(jsObjectAsCollection(jsify(list2), depth: 1), [
         ['..'],
-        {'.': '.'}
+        {'.': '.'},
       ]);
     });
 

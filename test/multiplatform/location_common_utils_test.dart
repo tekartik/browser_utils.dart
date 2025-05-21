@@ -30,14 +30,22 @@ void main() {
       expect(params['t'], equals('1'));
       expect(params['y'], isNull);
 
-      expect(locationSearchGetArguments('?tata&log=info&tutu=1')['tutu'],
-          equals('1'));
-      expect(locationSearchGetArguments('?tata&log=info&tutu=1')['tata'],
-          equals(''));
-      expect(locationSearchGetArguments('tata&log=info&tutu=1')['tata'],
-          equals(''));
-      expect(locationSearchGetArguments('tata&log=info&tutu=1')['tata'],
-          equals(''));
+      expect(
+        locationSearchGetArguments('?tata&log=info&tutu=1')['tutu'],
+        equals('1'),
+      );
+      expect(
+        locationSearchGetArguments('?tata&log=info&tutu=1')['tata'],
+        equals(''),
+      );
+      expect(
+        locationSearchGetArguments('tata&log=info&tutu=1')['tata'],
+        equals(''),
+      );
+      expect(
+        locationSearchGetArguments('tata&log=info&tutu=1')['tata'],
+        equals(''),
+      );
       expect(locationSearchGetArguments(null).isEmpty, isTrue);
 
       // Handle decoding

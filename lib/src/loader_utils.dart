@@ -12,32 +12,40 @@ Future debugLoadJavascriptScript(String src) {
   var script = web.HTMLScriptElement();
   print('dbg_loading: $src');
   script.type = 'text/javascript';
-  script.onError.listen((e) {
-    // This is actually the only callback called upon success
-    // onError, onDone are never called
-    print('dbg_onError($e): $src');
-    completer.completeError(Exception('script $src not loaded'));
-  }, onError: (Object e, StackTrace st) {
-    // never called
-    print('onErrorError: $src');
-    completer.completeError(e, st);
-  }, onDone: () {
-    // never called
-    print('onErrorDone: $src');
-  });
-  script.onLoad.listen((_) {
-    // This is actually the only callback called upon success
-    // onError, onDone are never called
-    print('dbg_onLoad: $src');
-    completer.complete();
-  }, onError: (Object e, StackTrace st) {
-    // never called
-    print('onError: $src');
-    completer.completeError(e, st);
-  }, onDone: () {
-    // never called
-    print('onDone: $src');
-  });
+  script.onError.listen(
+    (e) {
+      // This is actually the only callback called upon success
+      // onError, onDone are never called
+      print('dbg_onError($e): $src');
+      completer.completeError(Exception('script $src not loaded'));
+    },
+    onError: (Object e, StackTrace st) {
+      // never called
+      print('onErrorError: $src');
+      completer.completeError(e, st);
+    },
+    onDone: () {
+      // never called
+      print('onErrorDone: $src');
+    },
+  );
+  script.onLoad.listen(
+    (_) {
+      // This is actually the only callback called upon success
+      // onError, onDone are never called
+      print('dbg_onLoad: $src');
+      completer.complete();
+    },
+    onError: (Object e, StackTrace st) {
+      // never called
+      print('onError: $src');
+      completer.completeError(e, st);
+    },
+    onDone: () {
+      // never called
+      print('onDone: $src');
+    },
+  );
   // ignore: unsafe_html
   script.src = src;
   web.window.document.head!.appendChild(script);

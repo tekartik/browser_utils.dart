@@ -16,7 +16,7 @@ extension type Car._(JSObject _) implements JSObject {
   external int drive(num distance);
 
   external int crash(num distance);
-//external int drive(String distanceText);
+  //external int drive(String distanceText);
 }
 
 extension type WithIntValue._(JSObject _) implements JSObject {
@@ -96,7 +96,8 @@ void main() {
 
     test('JavascriptScriptLoader', () async {
       final loader = JavascriptScriptLoader(
-          url.join('data', 'javascript_script_loader_js_script.js'));
+        url.join('data', 'javascript_script_loader_js_script.js'),
+      );
       expect(loader.loaded, isFalse);
       expect(javascriptLoaderText, isNull);
       await loader.load();

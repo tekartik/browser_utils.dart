@@ -7,7 +7,7 @@ class BrowserLocationInfo implements LocationInfo {
   @override
   final Map<String, String> arguments;
   BrowserLocationInfo(this._location)
-      : arguments = locationSearchGetArguments(_location.search);
+    : arguments = locationSearchGetArguments(_location.search);
 
   @override
   String get host => _location.host;

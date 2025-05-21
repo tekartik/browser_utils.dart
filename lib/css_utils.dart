@@ -12,22 +12,24 @@ Future<void> loadStylesheet(String src) {
   link.type = 'text/css';
   var zone = Zone.current;
   print('loading $src');
-  link.onerror = (web.Event e) {
-    zone.run(() {
-      print('error $e');
-      completer.completeError(Exception('stylesheet $src not loaded'));
-    });
-    // This is actually the only callback called upon success
-    // onError, onDone are never called
-  }.toJS;
-  link.onload = (web.Event e) {
-    zone.run(() {
-      print('onLoad');
-      // This is actually the only callback called upon success
-      // onError, onDone are never called
-      completer.complete();
-    });
-  }.toJS;
+  link.onerror =
+      (web.Event e) {
+        zone.run(() {
+          print('error $e');
+          completer.completeError(Exception('stylesheet $src not loaded'));
+        });
+        // This is actually the only callback called upon success
+        // onError, onDone are never called
+      }.toJS;
+  link.onload =
+      (web.Event e) {
+        zone.run(() {
+          print('onLoad');
+          // This is actually the only callback called upon success
+          // onError, onDone are never called
+          completer.complete();
+        });
+      }.toJS;
 
   link.href = src;
   link.rel = 'stylesheet';
