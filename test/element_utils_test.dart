@@ -23,19 +23,17 @@ void main() {
     });
 
     test('find', () {
-      Element element =
-          DivElement()
-            ..id = 'test'
-            ..classes = ['test'];
+      Element element = DivElement()
+        ..id = 'test'
+        ..classes = ['test'];
       expect(findFirstAncestorWithClass(element, 'test', true), element);
       expect(findFirstAncestorWithId(element, 'test', true), element);
       expect(findFirstAncestorWithClass(element, 'test'), isNull);
       expect(findFirstAncestorWithId(element, 'test'), isNull);
 
-      Element child =
-          DivElement()
-            ..id = 'child'
-            ..classes = ['child'];
+      Element child = DivElement()
+        ..id = 'child'
+        ..classes = ['child'];
       element.append(child);
       expect(findFirstAncestorWithClass(child, 'child', true), child);
       expect(findFirstAncestorWithId(child, 'child', true), child);
