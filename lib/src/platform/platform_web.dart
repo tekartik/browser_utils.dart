@@ -2,7 +2,6 @@ import 'dart:js_interop';
 
 import 'package:tekartik_browser_utils/src/window_utils.dart';
 import 'package:web/web.dart' as web;
-
 export 'package:tekartik_browser_utils/src/storage_utils.dart'
     show
         webSessionStorageGet,
@@ -12,22 +11,21 @@ export 'package:tekartik_browser_utils/src/storage_utils.dart'
         webLocalStorageRemove,
         webLocalStorageSet;
 
-extension on web.Element {
-  external void requestFullScreen();
-  external void exitFullscreen();
-  external JSAny? get fullscreenElement;
+web.Element get _fullscreenElement {
+  return web.document.getElementById('tekartik_full_screen_section') ??
+      web.document.documentElement!;
 }
 
-void requestFullScreen() {
-  web.document.documentElement!.requestFullScreen();
+Future<void> requestFullScreen() async {
+  await _fullscreenElement.requestFullscreen().toDart;
 }
 
 void exitFullScreen() {
-  web.document.documentElement!.exitFullscreen();
+  web.document.exitFullscreen();
 }
 
 bool isFullScreen() {
-  return web.document.documentElement!.fullscreenElement != null;
+  return web.document.fullscreenElement != null;
 }
 
 /// Navigator language.
