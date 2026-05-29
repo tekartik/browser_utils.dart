@@ -54,7 +54,7 @@ external String get tekartikDebugLoadJsScriptText;
 String jsRuntimeType(JSObject jsObject) {
   var constructor = jsObject.getProperty('constructor'.toJS) as JSObject?;
   if (constructor == null) {
-    throw 'no constructor for ${jsObjectKeys(jsObject)}';
+    throw ArgumentError('no constructor for ${jsObjectKeys(jsObject)}');
   }
   return constructor.getProperty<JSString>('name'.toJS).toDart;
 }
@@ -120,6 +120,7 @@ void main() {
         // from failing
         expect(testForInArrayJoin(elements.jsify() as JSArray), expected);
       } on TestFailure catch (e) {
+        // ignore: avoid_print
         print('Unexpected error: $e');
         //print(jsObjectKeys(testForInArrayJoin(elements.jsify() as JSArray)));
       }
@@ -140,6 +141,7 @@ void main() {
         await debugLoadJavascriptScript('data/NOT_EXISTS.js');
       } catch (e) {
         failed = true;
+        // ignore: avoid_print
         print(e);
       }
       expect(failed, isTrue, reason: 'script does not exits');

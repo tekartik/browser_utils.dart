@@ -6,6 +6,7 @@ web.Element? outElement;
 
 var lines = <String>[];
 void _write(Object? msg) {
+  // ignore: avoid_print
   print(msg);
   _outBuffer.add('$msg');
   outElement ??= () {

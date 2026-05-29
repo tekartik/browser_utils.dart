@@ -7,12 +7,14 @@ void printError(Object? e, [StackTrace? st]) {
   try {
     web.console.error(e.toString().toJS);
   } catch (_) {
+    // ignore: avoid_print
     print(e);
   }
   if (st != null) {
     try {
       web.console.error(Trace.format(st).toJS);
     } catch (_) {
+      // ignore: avoid_print
       print(st);
     }
     //devPrint(st);

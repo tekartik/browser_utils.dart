@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 library;
 
 import 'dart:async';
@@ -7,7 +9,7 @@ import 'package:web/web.dart' as web;
 
 //export 'package:tekartik_js_utils/js_utils.dart';
 
-Future debugLoadJavascriptScript(String src) {
+Future<void> debugLoadJavascriptScript(String src) {
   final completer = Completer<void>();
   var script = web.HTMLScriptElement();
   print('dbg_loading: $src');

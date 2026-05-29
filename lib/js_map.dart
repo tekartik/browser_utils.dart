@@ -40,7 +40,7 @@ class JsMap<V> extends MapBase<String, dynamic> {
 
   @override
   dynamic remove(Object? key) {
-    throw 'Not implemented yet for JsMap, sorry';
+    throw UnimplementedError('Not implemented yet for JsMap, sorry');
   }
 
   @override
@@ -51,6 +51,6 @@ class JsMap<V> extends MapBase<String, dynamic> {
 
   @override
   void clear() {
-    throw 'Not implemented yet for JsMap, sorry';
+    throw UnimplementedError('Not implemented yet for JsMap, sorry');
   }
 }

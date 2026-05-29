@@ -70,6 +70,7 @@ void main() {
       try {
         await loader.load();
       } catch (e) {
+        // ignore: avoid_print
         print(e);
       }
       expect(loader.loaded, isFalse);

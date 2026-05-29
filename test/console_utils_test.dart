@@ -8,6 +8,7 @@ void main() {
   group('console_utils', () {
     test('printError', () async {
       printError('An error message');
+      // ignore: avoid_print
       print('A console message');
       try {
         throw UnsupportedError('testing stack trace');

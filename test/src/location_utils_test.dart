@@ -9,6 +9,7 @@ void main() {
   group('location', () {
     test('browser', () {
       final localLocationInfo = locationInfo as BrowserLocationInfo;
+      // ignore: avoid_print
       print(localLocationInfo.toDebugMap());
       //      expect(locationInfo.path, contains('location_utils_test.html'));
       //print('_locationInfo.location.protocol);

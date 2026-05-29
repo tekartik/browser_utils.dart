@@ -6,15 +6,17 @@ import 'dart:js_interop';
 import 'package:tekartik_common_utils/async_utils.dart';
 import 'package:web/web.dart' as web;
 
+import 'console_utils.dart';
+
 Future<void> loadStylesheet(String src) {
   final completer = Completer<void>();
   var link = web.HTMLLinkElement();
   link.type = 'text/css';
   var zone = Zone.current;
-  print('loading $src');
   link.onerror = (web.Event e) {
     zone.run(() {
-      print('error $e');
+      // ignore: avoid_print
+      printError('error $e');
       completer.completeError(Exception('stylesheet $src not loaded'));
     });
     // This is actually the only callback called upon success
@@ -22,7 +24,6 @@ Future<void> loadStylesheet(String src) {
   }.toJS;
   link.onload = (web.Event e) {
     zone.run(() {
-      print('onLoad');
       // This is actually the only callback called upon success
       // onError, onDone are never called
       completer.complete();
