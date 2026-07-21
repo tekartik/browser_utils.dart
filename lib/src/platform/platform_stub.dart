@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 void requestFullScreen() =>
     throw UnsupportedError('requestFullScreen web only');
 
@@ -42,3 +44,6 @@ void webOpenInSameTab(Uri uri) {
 void webReload({Uri? uri}) {
   throw UnsupportedError('webReload() web only');
 }
+
+String webBlobUrl({required Uint8List bytes, required String mimeType}) =>
+    throw UnsupportedError('webBlobUrl web only');

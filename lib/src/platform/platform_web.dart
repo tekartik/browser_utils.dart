@@ -1,4 +1,5 @@
 import 'dart:js_interop';
+import 'dart:typed_data';
 
 import 'package:tekartik_browser_utils/src/window_utils.dart';
 import 'package:web/web.dart' as web;
@@ -45,4 +46,13 @@ void webOpenInSameTab(Uri uri) {
 
 void webReload({Uri? uri}) {
   reload(uri: uri);
+}
+
+/// Creates an object URL for the given [bytes] and [mimeType].
+///
+/// The returned URL should be revoked with [web.URL.revokeObjectURL] once
+/// it is no longer needed.
+String webBlobUrl({required Uint8List bytes, required String mimeType}) {
+  var blob = web.Blob([bytes.toJS].toJS, web.BlobPropertyBag(type: mimeType));
+  return web.URL.createObjectURL(blob);
 }
