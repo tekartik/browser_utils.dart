@@ -4,9 +4,7 @@ library;
 
 import 'dart:html';
 
-///
 /// Sanitizer which does nothing.
-///
 class NullTreeSanitizer implements NodeTreeSanitizer {
   const NullTreeSanitizer();
   @override
