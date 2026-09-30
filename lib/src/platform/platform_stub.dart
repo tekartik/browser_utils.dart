@@ -1,11 +1,18 @@
 import 'dart:typed_data';
 
-void requestFullScreen() =>
+bool isFullScreenSupported() =>
+    throw UnsupportedError('isFullScreenSupported web only');
+
+Future<void> requestFullScreen() =>
     throw UnsupportedError('requestFullScreen web only');
 
-void exitFullScreen() => throw UnsupportedError('exitFullScreen web only');
+Future<void> exitFullScreen() =>
+    throw UnsupportedError('exitFullScreen web only');
 
 bool isFullScreen() => throw UnsupportedError('isFullScreen web only');
+
+Stream<bool> get onFullScreenChange =>
+    throw UnsupportedError('onFullScreenChange web only');
 
 String? webSessionStorageGet(String key) =>
     throw UnsupportedError('webSessionStorageGet web only');

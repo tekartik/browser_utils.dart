@@ -1,3 +1,9 @@
+# 0.7.6
+
+- full screen utils: `exitFullScreen` returns a future and is a no-op when not
+  full screen (the browser rejects it otherwise), add `isFullScreenSupported`
+  and the `onFullScreenChange` stream.
+
 # 0.6.2
 
 - add `implicit-casts: false`
