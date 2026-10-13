@@ -4,7 +4,6 @@ import 'package:web/web.dart' as web;
 OutBuffer _outBuffer = OutBuffer(100);
 web.Element? outElement;
 
-var lines = <String>[];
 void _write(Object? msg) {
   // ignore: avoid_print
   print(msg);

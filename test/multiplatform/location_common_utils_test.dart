@@ -43,8 +43,8 @@ void main() {
         equals(''),
       );
       expect(
-        locationSearchGetArguments('tata&log=info&tutu=1')['tata'],
-        equals(''),
+        locationSearchGetArguments('tata&log=info&tutu=1')['log'],
+        equals('info'),
       );
       expect(locationSearchGetArguments(null).isEmpty, isTrue);
 
@@ -57,6 +57,27 @@ void main() {
       expect(map['state']!.startsWith('{"ids":["0B4x'), isTrue);
       //String uri = 'http://milomedy.tekartik.com/?state=%7B%22ids%22:%5B%220B4xfXXDGtr7XbGZvaGZadlAtb1U%22%5D,%22action%22:%22open%22,%22userId%22:%22106049382465267012344%22%7D';
       //Uri.parse(uri)
+    });
+
+    test('locationSearchGetArguments malformed escapes', () {
+      // A raw '%' or invalid utf8 never throws, the raw text is kept.
+      expect(locationSearchGetArguments('?q=100%'), {'q': '100%'});
+      expect(locationSearchGetArguments('?q=%FF&a=1'), {'q': '%FF', 'a': '1'});
+      expect(locationSearchGetArguments('?q=a+b%'), {'q': 'a b%'});
+    });
+
+    test('locationSearchGetArguments full uri and values', () {
+      // The fragment is not part of the arguments.
+      expect(locationSearchGetArguments('/p?a=1#frag'), {'a': '1'});
+      expect(locationSearchGetArguments('?a=1#frag'), {'a': '1'});
+      // A '?' in a value of a query given without its leading '?'.
+      expect(locationSearchGetArguments('a=1&next=/x?b=2'), {
+        'a': '1',
+        'next': '/x?b=2',
+      });
+      // A repeated key keeps its last value.
+      expect(locationSearchGetArguments('?a=1&a=2'), {'a': '2'});
+      expect(locationSearchGetArguments('?x=a+b%20c'), {'x': 'a b c'});
     });
   });
 }

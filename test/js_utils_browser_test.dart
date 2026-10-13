@@ -128,49 +128,6 @@ void main() {
       ]);
     });
 
-    test('jsObjectOrAnyAsJsObject', () {
-      /*
-      // print(jsObjectOrAnyAsJsObject(null));
-      // print(jsObjectToDebugString(jsObjectOrAnyAsJsObject(new JsObject.jsify({}))));
-      // print(jsObjectOrAnyAsJsObject(1));
-      expect(jsObjectOrAnyAsJsObject(null), null);
-      expect(jsObjectOrAnyAsJsObject(1), null);
-      expect(jsObjectOrAnyAsCollection(new JsObject.jsify({})), {});
-      //print(jsObjectOrAnyAsJsObject(new Car()));
-      expect(jsObjectOrAnyAsJsObject(new Car()), const TypeMatcher<JsObject>());
-      // {distance: 0, drive: {}}
-      // print(jsObjectOrAnyAsCollection(new Car()));
-
-      //Map carCollection = jsObjectOrAnyAsCollection(new Car());
-      // firefox
-      // {o: {distance: 0, drive: {}}}
-      // print('carCollection: ${carCollection}');
-
-      Car car = new Car();
-
-      // On firefox ?XXJsLinkedHashMap on chorme _InternalLinkedHashMap
-      // Chrome: JsObjectImpl
-      // print('car.runtimeType: ${car.runtimeType}');
-
-      // On firefox ?XXJsLinkedHashMap on chorme _InternalLinkedHashMap
-      // Chrome: JsObject
-      // print('fromBrowser(car).runtimeType: ${new JsObject.fromBrowserObject(car).runtimeType}');
-      // On firefox JsLinkedHashMap on chorme _InternalLinkedHashMap
-      // print(jsObjectOrAnyAsCollection(new Car()).runtimeType);
-
-
-      if (debugRunningAsJavascript) {
-        expect(jsObjectOrAnyAsCollection(car), {
-          'o': {'distance': 0, 'drive': {}}
-        });
-      } else {
-        expect(jsObjectOrAnyAsCollection(car), {'distance': 0, 'drive': {}});
-      }
-      */
-
-      //expect(jsObjectOrAnyAsCollection(new Car()), {'distance': 0, 'drive': {}});
-    });
-
     test('toDebugString', () {
       expect(jsObjectToDebugString(null), null);
       expect(jsObjectToDebugString(jsify({})), '{}');

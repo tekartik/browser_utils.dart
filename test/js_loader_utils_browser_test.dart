@@ -115,15 +115,7 @@ void main() {
       expect(testArrayJoinJs(), expected);
       expect(testForInArrayJoinJs(), expected);
       expect(testArrayJoin(elements.jsify() as JSArray), expected);
-      try {
-        // This is failing for now...catch the exception to prevent our build
-        // from failing
-        expect(testForInArrayJoin(elements.jsify() as JSArray), expected);
-      } on TestFailure catch (e) {
-        // ignore: avoid_print
-        print('Unexpected error: $e');
-        //print(jsObjectKeys(testForInArrayJoin(elements.jsify() as JSArray)));
-      }
+      expect(testForInArrayJoin(elements.jsify() as JSArray), expected);
     });
 
     // Skipped when not debugging

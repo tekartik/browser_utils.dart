@@ -17,7 +17,7 @@ void webLocalStorageSet(String key, String value) =>
 
 String? webLocalStorageGet(String key) => web.window.localStorage.getItem(key);
 
-/// Delete an env var
+/// Remove [key] from the local storage
 void webLocalStorageRemove(String key) {
   web.window.localStorage.removeItem(key);
 }

@@ -1,42 +1,21 @@
 library;
 
 import 'dart:async';
-import 'dart:js_interop';
 
 import 'package:tekartik_common_utils/async_utils.dart';
 import 'package:web/web.dart' as web;
 
-import 'console_utils.dart';
+import 'src/loader_utils.dart' show loaderAppendToHead;
 
 Future<void> loadStylesheet(String src) {
-  final completer = Completer<void>();
   var link = web.HTMLLinkElement();
   link.type = 'text/css';
-  var zone = Zone.current;
-  link.onerror = (web.Event e) {
-    zone.run(() {
-      // ignore: avoid_print
-      printError('error $e');
-      completer.completeError(Exception('stylesheet $src not loaded'));
-    });
-    // This is actually the only callback called upon success
-    // onError, onDone are never called
-  }.toJS;
-  link.onload = (web.Event e) {
-    zone.run(() {
-      // This is actually the only callback called upon success
-      // onError, onDone are never called
-      completer.complete();
-    });
-  }.toJS;
-
   link.href = src;
   link.rel = 'stylesheet';
-  web.document.head!.appendChild(link);
-  return completer.future;
+  return loaderAppendToHead(link, errorMessage: 'stylesheet $src not loaded');
 }
 
-/// Helper to load a javascript script only once
+/// Helper to load a stylesheet only once
 class StylesheetLoader extends AsyncOnceRunner {
   StylesheetLoader(String src) : super(() => loadStylesheet(src));
   bool get loaded => done;

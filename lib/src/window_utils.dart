@@ -18,8 +18,24 @@ void openInSameTab(Uri uri) {
 }
 
 void reload({Uri? uri}) {
-  if (uri != null) {
-    web.window.location.replace(uri.toString());
+  locationReload(web.window.location, uri: uri);
+}
+
+/// Reload [location], navigating to [uri] (resolved against the current
+/// location) if set.
+///
+/// A reload right after a navigation to another document cancels that
+/// navigation, so only a uri changing nothing but the fragment (which does
+/// not load the page) is followed by a reload.
+void locationReload(web.Location location, {Uri? uri}) {
+  if (uri == null) {
+    location.reload();
+    return;
   }
-  web.window.location.reload();
+  var current = Uri.parse(location.href);
+  var target = current.resolveUri(uri);
+  location.replace(target.toString());
+  if (target.removeFragment() == current.removeFragment()) {
+    location.reload();
+  }
 }

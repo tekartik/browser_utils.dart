@@ -16,8 +16,7 @@ Future<void> debugLoadJavascriptScript(String src) {
   script.type = 'text/javascript';
   script.onError.listen(
     (e) {
-      // This is actually the only callback called upon success
-      // onError, onDone are never called
+      // The only callback called upon failure
       print('dbg_onError($e): $src');
       completer.completeError(Exception('script $src not loaded'));
     },
@@ -64,21 +63,36 @@ class JavascriptScriptLoader extends AsyncOnceRunner {
 }
 
 Future loadJavascriptScript(String src) {
-  final completer = Completer<void>();
   var script = web.HTMLScriptElement();
   script.type = 'text/javascript';
-  script.onError.listen((e) {
-    // This is actually the only callback called upon success
-    // onError, onDone are never called
-    completer.completeError(Exception('script $src not loaded'));
-  });
-  script.onLoad.listen((_) {
-    // This is actually the only callback called upon success
-    // onError, onDone are never called
-    completer.complete();
-  });
   // ignore: unsafe_html
   script.src = src;
-  web.document.head!.appendChild(script);
+  return loaderAppendToHead(script, errorMessage: 'script $src not loaded');
+}
+
+/// Append [element] (a script or a stylesheet link) to the document head and
+/// complete once loaded, or with an [Exception] of [errorMessage] if it fails
+/// to load (each element sends one load or one error event).
+Future<void> loaderAppendToHead(
+  web.HTMLElement element, {
+  required String errorMessage,
+}) {
+  final completer = Completer<void>();
+  StreamSubscription<web.Event>? loadSubscription;
+  StreamSubscription<web.Event>? errorSubscription;
+  void cancel() {
+    loadSubscription?.cancel();
+    errorSubscription?.cancel();
+  }
+
+  loadSubscription = element.onLoad.listen((_) {
+    cancel();
+    completer.complete();
+  });
+  errorSubscription = element.onError.listen((_) {
+    cancel();
+    completer.completeError(Exception(errorMessage));
+  });
+  web.document.head!.appendChild(element);
   return completer.future;
 }

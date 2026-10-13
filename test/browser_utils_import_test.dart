@@ -27,7 +27,7 @@ void main() {
     test('js', () async {
       await loadJavascriptScript('data/simple_script.js');
       await expectLater(() async {
-        await loadStylesheet('data/simple_script_not_found.js');
+        await loadJavascriptScript('data/simple_script_not_found.js');
       }, throwsA(isNot(isA<TestFailure>())));
     });
   });

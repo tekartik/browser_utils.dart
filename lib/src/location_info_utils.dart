@@ -1,9 +1,14 @@
 import 'package:tekartik_browser_utils/src/location_info_common_utils.dart';
 import 'package:web/web.dart' as web;
 
+/// Location info of a browser [web.Location].
+///
+/// [host] and [path] read the live location, [arguments] are captured once
+/// at creation (a later `history.pushState` does not change them).
 class BrowserLocationInfo implements LocationInfo {
   final web.Location _location;
-  // never null
+
+  /// The arguments of the location search at creation, never null.
   @override
   final Map<String, String> arguments;
   BrowserLocationInfo(this._location)

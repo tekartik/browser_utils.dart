@@ -67,7 +67,7 @@ Element? findFirstAncestorWithId(
 }
 
 // Recursive into the parent to find the first parent matching the class
-/// [includeElement] if true also check the current element id
+/// [includeElement] if true also check the current element class
 Element? findFirstAncestorWithClass(
   Element element,
   String klass, [
